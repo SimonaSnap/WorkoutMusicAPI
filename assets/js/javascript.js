@@ -8,10 +8,10 @@ var workoutBtn = document.getElementById("workoutBtn");
 function workoutApi() {}
 
 //Xavier function
-function xApi() {}
+function beerApi() {}
 
 workoutBtn.addEventListener("click", workoutApi);
-songBtn.addEventListener("click", xApi);
+songBtn.addEventListener("click", beerApi);
 
 //Simona: saving workout to local storage
 
