@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" />
-    <title>workout music</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
+ <head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" />
+		<title>Barbells and Brews</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+		/>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+	</head>
 
-  <body>
-    <main>
-      <header></header>
-      <section>
-        <div id="playlist-container">
-          <button id="songBtn"></button>
-        </div>
-        <div id="workout-container">
-          <button id="beerBtn"></button>
-        </div>
-      </section>
-    </main>
-    <script src="./assets/js/javascript.js" async defer></script>
-  </body>
-</html>
+	<body>
+		<main>
+			<header class="container is-fluid , centered  ">
+				<h1 class="notification is-primary , has-text-centered , is-size-1">
+					Barbells and Brews
+				</h1>
+			</header>
+			<section class=" is-vcentered ">
+				<div
+					class="has-text-centered , is-align-self-center, is-flex-direction-row , column is-half , c is-multiline"
+					id="playlist-container"
+				>
+					<button  id="songBtn"></button>
+				</div>
+			
+			
+				<div
+					class="has-text-centered ,is-align-self-center , is-flex-direction-row column is-half , c is-multiline "
+					id="workout-container"
+				>
+					<button id="workoutBtn"></button>
+				</div>
+			</section>
+		</main>
+		<script src="./assets/js/javascript.js" async defer></script>
+	</body>
+
+  </html>
