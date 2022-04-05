@@ -1,10 +1,10 @@
-//this is where I shall place the url for the exercise API
-var exerciseURL;
-
-//figuring out github changes
 
 
-//elizabeth made this comment
+//global variables
+var body = document.body;
 
-// music API comment
-
+var songBtn = document.getElementById("songBtn");
+var workoutBtn = document.getElementById("workoutBtn");
+//vanilla javascript work
+//music API work
+//workout API work
