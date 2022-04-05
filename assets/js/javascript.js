@@ -5,13 +5,13 @@ var songBtn = document.getElementById("songBtn");
 var workoutBtn = document.getElementById("workoutBtn");
 
 // Simona function
-function workoutAPI() {}
+function workoutApi() {}
 
 //Xavier function
-function musicAPI() {}
+function xApi() {}
 
-workoutBtn.addEventListener("click", workoutAPI);
-songBtn.addEventListener("click", musicAPI);
+workoutBtn.addEventListener("click", workoutApi);
+songBtn.addEventListener("click", xApi);
 
 //Simona: saving workout to local storage
 
