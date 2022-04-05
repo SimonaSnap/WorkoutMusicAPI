@@ -2,7 +2,7 @@
 var body = document.body;
 
 var songBtn = document.getElementById("songBtn");
-var workoutBtn = document.getElementById("workoutBtn");
+var beerBtn = document.getElementById("beerBtn");
 
 // Simona function
 function workoutApi() {}
