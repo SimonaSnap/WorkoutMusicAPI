@@ -16,26 +16,30 @@
 
   <body>
     <main>
-      <header class="container is-fluid , centered">
-        <h1 class="notification is-primary , has-text-centered , is-size-1">
+      <header class="container is-fluid centered">
+        <h1 class="notification is-primary has-text-centered is-size-1">
           Barbells and Brews
         </h1>
       </header>
-      <section class="is-vcentered">
-        <div
-          class="has-text-centered , is-align-self-center, is-flex-direction-row , column is-half , c is-multiline"
-          id="playlist-container"
-        >
-          <button id="songBtn"></button>
-          <input type="text" placeholder="Zip Code" />
-        </div>
-
-        <div
-          class="has-text-centered ,is-align-self-center , is-flex-direction-row column is-half , c is-multiline"
-          id="workout-container"
-        >
-          <button id="workoutBtn"></button>
-        </div>
+      <section
+        class="card column is-narrow is-multiline custome has-text-centered"
+      >
+        <article class="column is-half is-narrow">
+          <div id="playlist-container">
+            <button id="songBtn">serch</button>
+            <input type="text" placeholder="Zip Code" />
+          </div>
+        </article>
+        <article class="column is-half is-narrow">
+          <div class="column" id="workout-container">
+            <select id="workoutDropdown">
+              <option selected disabled>Choose Target Body Part</option>
+            </select>
+            <select id="numberDropdown">
+              <option selected disabled>How many exercises do you want?</option>
+            </select>
+          </div>
+        </article>
         <button id="submitBtn">Submit</button>
       </section>
     </main>
