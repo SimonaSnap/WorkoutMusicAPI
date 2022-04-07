@@ -6,7 +6,6 @@ var workoutBtn = document.getElementById("workoutBtn");
 var beerBtn = document.getElementById("beerBtn");
 
 // Simona function
-workoutBtn.textContent = "Choose target body part";
 var bodyParts = [
   "back",
   "cardio",
@@ -20,53 +19,73 @@ var bodyParts = [
   "waist",
 ];
 
-var optionlist = document.createElement("ul");
-for (let i = 0; i < bodyParts.length; i++) {
-  var listItem = document.createElement("li");
-  var listBtn = document.createElement("button");
-  listBtn.textContent = bodyParts[i];
-  listItem.appendChild(listBtn);
-  optionlist.appendChild(listItem);
-  listBtn.setAttribute("id", i.toString());
+var bodyPartDropdown = document.getElementById("workoutDropdown");
+for (let i = 0; i < bodyParts.length; i++)
+{
+  var optionChoice = document.createElement("option");
+  optionChoice.value = bodyParts[i];
+  optionChoice.textContent = bodyParts[i];
+  bodyPartDropdown.appendChild(optionChoice);
 }
 
-body.appendChild(optionlist);
-optionlist.hidden = true;
-
-workoutBtn.addEventListener("click", showFunction);
-
-function showFunction(event) {
+bodyPartDropdown.addEventListener("click", function (event)
+{
   event.stopPropagation();
   event.preventDefault();
+  var optionValue = bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
+  console.log(optionValue);
 
-  if (optionlist.hidden == true) {
-    optionlist.hidden = false;
-  } else {
-    optionlist.hidden = true;
+  var numberDropdown = document.getElementById("numberDropdown");
+
+  if (optionValue == "Choose Target Body Part")
+  {
+
   }
-}
+  else
+  {
+    //    const options = {
+    //      method: 'GET',
+    //      headers: {
+    //        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+    //        'X-RapidAPI-Key': 'd4226dfadcmsh12369317a72c986p116810jsnca27ca1b9942'
+    //      }
+    //    };
 
-function workoutApi() {}
+    //    fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/' + optionValue, options)
+    //      .then(response => response.json())
+    //      .then(response => console.log(response))
+    //      .catch(err => console.error(err));
+
+
+    for (let i = 0; i < 21; i++)
+    {
+      var numberOption = document.createElement("option");
+      numberOption.value = (i + 4).toString();
+      numberOption.textContent = (i + 4).toString();
+      numberDropdown.appendChild(numberOption);
+    }
+  }
+})
 
 //Xavier function
 //Beer API work
 
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
-  },
-};
+//const options = {
+//method: "GET",
+//  headers: {
+//  "X-RapidAPI-Host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
+//    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+//  },
+//};
 
-fetch("https://api.openbrewerydb.org/breweries?by_postal=98108", options)
-  .then((response) => response.json())
-  .then((response) => console.log(response))
-  .catch((err) => console.error(err));
-function beerApi() {}
+//fetch("https://api.openbrewerydb.org/breweries?by_postal=98108", options)
+//  .then((response) => response.json())
+//  .then((response) => console.log(response))
+//  .catch((err) => console.error(err));
+//function beerApi() { }
 
-workoutBtn.addEventListener("click", workoutApi);
-songBtn.addEventListener("click", beerApi);
+//workoutBtn.addEventListener("click", workoutApi);
+//songBtn.addEventListener("click", beerApi);
 
 //Simona: saving workout to local storage
 
