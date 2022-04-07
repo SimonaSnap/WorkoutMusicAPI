@@ -20,29 +20,24 @@ var bodyParts = [
 ];
 
 var bodyPartDropdown = document.getElementById("workoutDropdown");
-for (let i = 0; i < bodyParts.length; i++)
-{
+for (let i = 0; i < bodyParts.length; i++) {
   var optionChoice = document.createElement("option");
   optionChoice.value = bodyParts[i];
   optionChoice.textContent = bodyParts[i];
   bodyPartDropdown.appendChild(optionChoice);
 }
 
-bodyPartDropdown.addEventListener("click", function (event)
-{
+bodyPartDropdown.addEventListener("click", function (event) {
   event.stopPropagation();
   event.preventDefault();
-  var optionValue = bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
+  var optionValue =
+    bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
   console.log(optionValue);
 
   var numberDropdown = document.getElementById("numberDropdown");
 
-  if (optionValue == "Choose Target Body Part")
-  {
-
-  }
-  else
-  {
+  if (optionValue == "Choose Target Body Part") {
+  } else {
     //    const options = {
     //      method: 'GET',
     //      headers: {
@@ -56,32 +51,30 @@ bodyPartDropdown.addEventListener("click", function (event)
     //      .then(response => console.log(response))
     //      .catch(err => console.error(err));
 
-
-    for (let i = 0; i < 21; i++)
-    {
+    for (let i = 0; i < 21; i++) {
       var numberOption = document.createElement("option");
       numberOption.value = (i + 4).toString();
       numberOption.textContent = (i + 4).toString();
       numberDropdown.appendChild(numberOption);
     }
   }
-})
+});
 
 //Xavier function
 //Beer API work
-
 
 function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
-  fetch(
-    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput,
-    options
-  )
+  fetch("https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput)
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err));
+
+  var BrewerName = response[0];
+
+  console.log(BrewerName);
 }
 
 function submit() {
@@ -92,7 +85,6 @@ submitBtn.addEventListener("click", submit);
 
 // workoutBtn.addEventListener("click", workoutApi);
 // songBtn.addEventListener("click", beerApi);
-
 
 //Simona: saving workout to local storage
 
