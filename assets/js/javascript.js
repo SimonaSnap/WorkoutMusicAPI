@@ -49,8 +49,8 @@ function showFunction(event) {
 function workoutApi() {}
 
 //Xavier function
-//Beer API work
 
+//Beer API work
 function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
