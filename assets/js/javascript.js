@@ -1,8 +1,10 @@
 //global variables
 var body = document.body;
 
-var workoutBtn = document.getElementById("workoutBtn");
+var submitBtn = document.getElementById("submitBtn");
 
+//maybe don't need these two variables?
+var workoutBtn = document.getElementById("workoutBtn");
 var beerBtn = document.getElementById("beerBtn");
 
 // Simona function
@@ -46,8 +48,6 @@ function showFunction(event) {
   }
 }
 
-function workoutApi() {}
-
 //Xavier function
 //Beer API work
 
@@ -63,10 +63,9 @@ fetch("https://api.openbrewerydb.org/breweries?by_postal=98108", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
-function beerApi() {}
 
-workoutBtn.addEventListener("click", workoutApi);
-songBtn.addEventListener("click", beerApi);
+//submit button listener to activate fetch functions
+submitBtn.addEventListener("click");
 
 //Simona: saving workout to local storage
 
