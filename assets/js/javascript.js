@@ -6,6 +6,8 @@ var workoutBtn = document.getElementById("workoutBtn");
 var beerBtn = document.getElementById("beerBtn");
 
 // Simona function
+var workoutSpace = document.getElementById("workout-container");
+
 var bodyParts = [
   "back",
   "cardio",
@@ -33,9 +35,6 @@ bodyPartDropdown.addEventListener("click", function (event)
   event.stopPropagation();
   event.preventDefault();
   var optionValue = bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
-  console.log(optionValue);
-
-  var numberDropdown = document.getElementById("numberDropdown");
 
   if (optionValue == "Choose Target Body Part")
   {
@@ -56,6 +55,14 @@ bodyPartDropdown.addEventListener("click", function (event)
     //      .then(response => console.log(response))
     //      .catch(err => console.error(err));
 
+    var numberDropdown = document.createElement("select");
+    var defaultOption = document.createElement("option");
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    defaultOption.textContent = "How many exercises do you want?"
+    workoutSpace.appendChild(numberDropdown);
+    numberDropdown.appendChild(defaultOption);
+
 
     for (let i = 0; i < 21; i++)
     {
@@ -71,24 +78,26 @@ bodyPartDropdown.addEventListener("click", function (event)
 //Beer API work
 
 
-function beer() {
-  var Zipcode = document.getElementById("zipCode");
-  var zipcodeInput = Zipcode.value;
+//function beer()
+//{
+//  var Zipcode = document.getElementById("zipCode");
+//  var zipcodeInput = Zipcode.value;
 
-  fetch(
-    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput,
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-}
+  //  fetch(
+  //    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput,
+  //    options
+  //  )
+  //    .then((response) => response.json())
+  //    .then((response) => console.log(response))
+  //    .catch((err) => console.error(err));
+  //}
 
-function submit() {
-  beer();
-}
+//  function submit()
+//  {
+//    beer();
+//  }
 
-submitBtn.addEventListener("click", submit);
+//  submitBtn.addEventListener("click", submit);
 
 // workoutBtn.addEventListener("click", workoutApi);
 // songBtn.addEventListener("click", beerApi);
