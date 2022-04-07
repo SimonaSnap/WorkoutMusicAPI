@@ -1,6 +1,8 @@
 //global variables
 var body = document.body;
 
+var today = moment();
+
 var submitBtn = document.getElementById("submitBtn");
 
 //maybe don't need these two variables?
