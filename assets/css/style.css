@@ -1,9 +1,11 @@
+/* header section  for Title*/
 .custom-header {
 	background-color: rgb(176, 161, 186);
 	color: rgb(43, 47, 51);
 	font-family: "Beau Rivage", cursive;
 	font-size: 50%;
 }
+/* main section with divs for serch for brews and workout section */
 .custom-section {
 	display: flex;
 	flex-direction: row;
@@ -13,12 +15,14 @@
 .custom-section {
 	background-color: rgb(43, 47, 51);
 }
+/* dropdown color and sizeing  */
 .dropdown {
 	border-radius: 5rem;
 	background-color: rgb(204, 137, 79);
 	color: rgb(43, 47, 51);
 	width: 500px;
 }
+/* submit buttons section */
 .finalserchbtn {
 	border-radius: 5rem;
 	width: 250px;
