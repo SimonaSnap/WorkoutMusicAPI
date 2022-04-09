@@ -30,6 +30,25 @@ for (let i = 0; i < bodyParts.length; i++)
   bodyPartDropdown.appendChild(optionChoice);
 }
 
+function makeDropdown()
+{
+  var numberDropdown = document.createElement("select");
+  var defaultOption = document.createElement("option");
+  defaultOption.selected = true;
+  defaultOption.disabled = true;
+  defaultOption.textContent = "How many exercises do you want?"
+  workoutSpace.appendChild(numberDropdown);
+  numberDropdown.appendChild(defaultOption);
+
+  for (let i = 0; i < 17; i++)
+  {
+    var numberOption = document.createElement("option");
+    numberOption.textContent = (i + 4).toString();
+    numberDropdown.appendChild(numberOption);
+  }
+  bodyPartDropdown.disabled = true;
+}
+
 bodyPartDropdown.addEventListener("click", function (event)
 {
   event.stopPropagation();
@@ -55,22 +74,7 @@ bodyPartDropdown.addEventListener("click", function (event)
     //      .then(response => console.log(response))
     //      .catch(err => console.error(err));
 
-    var numberDropdown = document.createElement("select");
-    var defaultOption = document.createElement("option");
-    defaultOption.selected = true;
-    defaultOption.disabled = true;
-    defaultOption.textContent = "How many exercises do you want?"
-    workoutSpace.appendChild(numberDropdown);
-    numberDropdown.appendChild(defaultOption);
-
-
-    for (let i = 0; i < 21; i++)
-    {
-      var numberOption = document.createElement("option");
-      numberOption.value = (i + 4).toString();
-      numberOption.textContent = (i + 4).toString();
-      numberDropdown.appendChild(numberOption);
-    }
+    makeDropdown();
   }
 })
 
