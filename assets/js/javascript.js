@@ -119,11 +119,10 @@ function beer()
   });
 }
 
-
-//  function submit()
-//  {
-//    beer();
-//  }
+//function submit()
+//{
+//  beer();
+//}
 
 
 // workoutBtn.addEventListener("click", workoutApi);
