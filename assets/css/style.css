@@ -1,10 +1,18 @@
-* {
-	font-size: 24px;
+
+/* * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
 	line-height: 1.5;
-}
+	font-size: 24px;
+	
+} */
 .custom-header {
-	background-color: rgb(176, 161, 186);
-	color: rgb(43, 47, 51);
+	/* background-color: rgb(176, 161, 186); */
+	/* color: rgb(43, 47, 51); */
+	font-family: "Beau Rivage", cursive;
+	font-size: 50%;
 }
 .custom-section {
 	display: flex;
@@ -13,16 +21,16 @@
 	justify-content: center;
 }
 .custom-section {
-	background-color: rgb(43, 47, 51);
+	/* background-color: rgb(43, 47, 51); */
 }
 .dropdown {
 	border-radius: 5rem;
-	background-color: rgb(204, 137, 79);
+	/* background-color: rgb(204, 137, 79); */
 	color: rgb(43, 47, 51);
 	width: 500px;
 }
 .finalserchbtn {
 	border-radius: 5rem;
 	width: 250px;
-	background-color: rgb(204, 137, 79);
+	/* background-color: rgb(204, 137, 79); */
 }
