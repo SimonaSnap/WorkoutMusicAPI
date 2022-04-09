@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barbells and Brews</title>
+    <!-- links to style and font  -->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link
       rel="stylesheet"
@@ -22,6 +23,7 @@
 
   <body>
     <main>
+      <!-- Header and title on page  -->
       <header class="container is-fluid centered custom-header">
         <h1 class="notification has-text-centered is-size-1 custom-header">
           Barbells and Brews
@@ -30,6 +32,7 @@
       <section
         class="card column is-narrow is-multiline custom-section has-text-centered"
       >
+        <!-- Workout section -->
         <article class="column is-half is-narrow">
           <div class="column" id="workout-container">
             <select class="dropdown dropdown-sizeing" id="workoutDropdown">
@@ -37,6 +40,7 @@
             </select>
           </div>
         </article>
+        <!-- Brewerys section -->
         <article class="column is-half is-narrow">
           <div id="playlist-container">
             <input
@@ -47,15 +51,18 @@
             />
           </div>
         </article>
+        <!-- final submit button -->
         <div>
           <button class="finalserchbtn" id="submitBtn">Submit</button>
         </div>
       </section>
+      <!-- Saved brewery and workouts  -->
       <section id="favorites">
         <div id="favWorkouts"></div>
         <div id="favBrews"></div>
       </section>
     </main>
+    <!-- links for js and moment -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
       integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
