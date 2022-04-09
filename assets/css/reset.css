@@ -1,0 +1,18 @@
+/* gobal reset */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	line-height: 1.5;
+	font-size: 30px;
+	font-family: "Montserrat", sans-serif;
+}
+/* background img setting */
+.multi-bg {
+	background-size: 50%;
+	background-image: url("../img/samuel-girven-VJ2s0c20qCo-unsplash.jpg"),
+		url("../img/adam-wilson-ANK5zq-g_-g-unsplash.jpg");
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+}
