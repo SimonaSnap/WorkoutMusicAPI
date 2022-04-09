@@ -103,5 +103,9 @@ bodyPartDropdown.addEventListener("click", function (event) {
 //Xavier: saving music to local storage
 
 //Elizabeth: pulling music from local storage
+var favWorkouts = document.getElementById("favWorkouts");
+favWorkouts.appendChild();
 
 //Elizabeth: pulling workout from local storage
+var favBrews = document.getElementById("favBrews");
+favBrews.appendChild();
