@@ -84,6 +84,7 @@ bodyPartDropdown.addEventListener("click", function (event) {
 });
 
 //Xavier function
+
 //Beer API work
 function beer() {
   var Zipcode = document.getElementById("zipCode");
@@ -127,7 +128,7 @@ function submit() {
 
 //Simona: saving workout to local storage
 
-//Xavier: saving music to local storage
+submitBtn.addEventListener("click", submit);
 
 //Elizabeth: pulling music from local storage
 var favWorkouts = document.getElementById("favWorkouts");
