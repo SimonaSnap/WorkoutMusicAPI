@@ -7,23 +7,7 @@
 	font-size: 30px;
 	font-family: "Montserrat", sans-serif;
 }
-.bg1 {
-	background-image: url("..//img/meritt-thomas-XStd_1-BNi8-unsplash.jpg");
-	background-size: 50%;
-	background-position: right;
-	background-repeat: no-repeat;
-	background-repeat: no-repeat;
-	background-origin: content-box;
-	border: 10px solid black;
-}
-.bg2 {
-	background-image: url("../img/samuel-girven-VJ2s0c20qCo-unsplash.jpg");
-	background-size: 50%;
-	background-position: left;
-	background-repeat: no-repeat;
-	background-origin: content-box;
-	border: 10px solid black;
-}
+
 .multi-bg {
 	background-size: 50%;
 	background-image: url("../img/samuel-girven-VJ2s0c20qCo-unsplash.jpg"),
