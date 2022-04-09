@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	line-height: 1.5;
+	font-size: 30px;
+	font-family: "Montserrat", sans-serif;
+}
+.bg1 {
+	background-image: url("..//img/meritt-thomas-XStd_1-BNi8-unsplash.jpg");
+	background-size: 50%;
+	background-position: right;
+	background-repeat: no-repeat;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	border: 10px solid black;
+}
+.bg2 {
+	background-image: url("../img/samuel-girven-VJ2s0c20qCo-unsplash.jpg");
+	background-size: 50%;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	border: 10px solid black;
+}
+.multi-bg {
+	background-size: 50%;
+	background-image: url("../img/samuel-girven-VJ2s0c20qCo-unsplash.jpg"),
+		url("../img/adam-wilson-ANK5zq-g_-g-unsplash.jpg");
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+}
