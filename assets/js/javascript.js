@@ -104,8 +104,8 @@ bodyPartDropdown.addEventListener("click", function (event) {
 
 //Elizabeth: pulling music from local storage
 var favWorkouts = document.getElementById("favWorkouts");
-favWorkouts.appendChild();
+// favWorkouts.appendChild();
 
 //Elizabeth: pulling workout from local storage
 var favBrews = document.getElementById("favBrews");
-favBrews.appendChild();
+// favBrews.appendChild();
