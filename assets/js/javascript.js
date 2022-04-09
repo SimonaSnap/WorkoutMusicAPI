@@ -56,26 +56,42 @@ function beer() {
   var zipcodeInput = Zipcode.value;
 
   fetch(
-    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput,
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
+  ).then(function (response) {
+    if (response.ok) {
+      console.log(response);
+      response.json().then(function (data) {
+        console.log(data);
+        var breweryName = data[0].name;
+        var breweryUrl = data[0].website_url;
+        var breweryPhone = data[0].phone;
+        var breweryAddress = data[0].street;
+
+        console.log(breweryName);
+        console.log(breweryUrl);
+        console.log(breweryPhone);
+        console.log(breweryAddress);
+        //Xavier: saving Brewery to local storage
+        localStorage.setItem("breweryName", breweryName);
+        localStorage.setItem("breweryUrl", breweryUrl);
+        localStorage.setItem("breweryPhone", breweryPhone);
+        localStorage.setItem("breweryAddress", breweryAddress);
+        localStorage.setItem("breweryList", data.name);
+      });
+    }
+  });
 }
 
 function submit() {
   beer();
 }
 
-submitBtn.addEventListener("click", submit);
-
 // workoutBtn.addEventListener("click", workoutApi);
 // songBtn.addEventListener("click", beerApi);
 
 //Simona: saving workout to local storage
 
-//Xavier: saving music to local storage
+submitBtn.addEventListener("click", submit);
 
 //Elizabeth: pulling music from local storage
 
