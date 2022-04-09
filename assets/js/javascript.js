@@ -33,21 +33,16 @@ for (let i = 0; i < bodyParts.length; i++) {
   bodyPartDropdown.appendChild(optionChoice);
 }
 
-<<<<<<< HEAD
-bodyPartDropdown.addEventListener("click", function (event) {
-=======
-function makeDropdown()
-{
+function makeDropdown() {
   var numberDropdown = document.createElement("select");
   var defaultOption = document.createElement("option");
   defaultOption.selected = true;
   defaultOption.disabled = true;
-  defaultOption.textContent = "How many exercises do you want?"
+  defaultOption.textContent = "How many exercises do you want?";
   workoutSpace.appendChild(numberDropdown);
   numberDropdown.appendChild(defaultOption);
 
-  for (let i = 0; i < 17; i++)
-  {
+  for (let i = 0; i < 17; i++) {
     var numberOption = document.createElement("option");
     numberOption.textContent = (i + 4).toString();
     numberDropdown.appendChild(numberOption);
@@ -55,21 +50,15 @@ function makeDropdown()
   bodyPartDropdown.disabled = true;
 }
 
-bodyPartDropdown.addEventListener("click", function (event)
-{
->>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
+bodyPartDropdown.addEventListener("click", function (event) {
   event.stopPropagation();
   event.preventDefault();
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
-<<<<<<< HEAD
   console.log(optionValue);
 
   var numberDropdown = document.getElementById("numberDropdown");
 
-=======
-
->>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
   if (optionValue == "Choose Target Body Part") {
   } else {
     //    const options = {
@@ -85,56 +74,51 @@ bodyPartDropdown.addEventListener("click", function (event)
     //      .then(response => console.log(response))
     //      .catch(err => console.error(err));
 
-<<<<<<< HEAD
     for (let i = 0; i < 21; i++) {
       var numberOption = document.createElement("option");
       numberOption.value = (i + 4).toString();
       numberOption.textContent = (i + 4).toString();
       numberDropdown.appendChild(numberOption);
     }
-=======
-    makeDropdown();
->>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
   }
 });
 
 //Xavier function
 //Beer API work
-
-<<<<<<< HEAD
 function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
-  fetch("https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+  fetch(
+    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
+  ).then(function (response) {
+    if (response.ok) {
+      console.log(response);
+      response.json().then(function (data) {
+        console.log(data);
+        var breweryName = data[0].name;
+        var breweryUrl = data[0].website_url;
+        var breweryPhone = data[0].phone;
+        var breweryAddress = data[0].street;
 
-  var BrewerName = response[0];
-
-  console.log(BrewerName);
+        console.log(breweryName);
+        console.log(breweryUrl);
+        console.log(breweryPhone);
+        console.log(breweryAddress);
+        //Xavier: saving Brewery to local storage
+        localStorage.setItem("breweryName", breweryName);
+        localStorage.setItem("breweryUrl", breweryUrl);
+        localStorage.setItem("breweryPhone", breweryPhone);
+        localStorage.setItem("breweryAddress", breweryAddress);
+        localStorage.setItem("breweryList", data.name);
+      });
+    }
+  });
 }
-=======
-//function beer()
-//{
-//  var Zipcode = document.getElementById("zipCode");
-//  var zipcodeInput = Zipcode.value;
 
-//  fetch(
-//    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput,
-//    options
-//  )
-//    .then((response) => response.json())
-//    .then((response) => console.log(response))
-//    .catch((err) => console.error(err));
-//}
-
-//  function submit()
-//  {
-//    beer();
-//  }
->>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
+function submit() {
+  beer();
+}
 
 //  submitBtn.addEventListener("click", submit);
 
