@@ -102,7 +102,7 @@ function beer() {
         localStorage.setItem("breweryUrl", breweryUrl);
         localStorage.setItem("breweryPhone", breweryPhone);
         localStorage.setItem("breweryAddress", breweryAddress);
-        localStorage.setItem("breweryList", data.name);
+        localStorage.setItem("breweryList", data[i]);
       });
     }
   });
