@@ -26,14 +26,16 @@ var bodyParts = [
 ];
 
 var bodyPartDropdown = document.getElementById("workoutDropdown");
-for (let i = 0; i < bodyParts.length; i++) {
+for (let i = 0; i < bodyParts.length; i++)
+{
   var optionChoice = document.createElement("option");
   optionChoice.value = bodyParts[i];
   optionChoice.textContent = bodyParts[i];
   bodyPartDropdown.appendChild(optionChoice);
 }
 
-function makeDropdown() {
+function makeDropdown()
+{
   var numberDropdown = document.createElement("select");
   var defaultOption = document.createElement("option");
   defaultOption.selected = true;
@@ -42,7 +44,8 @@ function makeDropdown() {
   workoutSpace.appendChild(numberDropdown);
   numberDropdown.appendChild(defaultOption);
 
-  for (let i = 0; i < 17; i++) {
+  for (let i = 0; i < 17; i++)
+  {
     var numberOption = document.createElement("option");
     numberOption.textContent = (i + 4).toString();
     numberDropdown.appendChild(numberOption);
@@ -50,14 +53,17 @@ function makeDropdown() {
   bodyPartDropdown.disabled = true;
 }
 
-bodyPartDropdown.addEventListener("click", function (event) {
+bodyPartDropdown.addEventListener("click", function (event)
+{
   event.stopPropagation();
   event.preventDefault();
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
 
-  if (optionValue == "Choose Target Body Part") {
-  } else {
+  if (optionValue == "Choose Target Body Part")
+  {
+  } else
+  {
     //    const options = {
     //      method: 'GET',
     //      headers: {
@@ -78,16 +84,20 @@ bodyPartDropdown.addEventListener("click", function (event) {
 //Xavier function
 
 //Beer API work
-function beer() {
+function beer()
+{
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
   fetch(
     "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
-  ).then(function (response) {
-    if (response.ok) {
+  ).then(function (response)
+  {
+    if (response.ok)
+    {
       console.log(response);
-      response.json().then(function (data) {
+      response.json().then(function (data)
+      {
         console.log(data);
         var breweryName = data[0].name;
         var breweryUrl = data[0].website_url;
