@@ -76,7 +76,6 @@ bodyPartDropdown.addEventListener("click", function (event) {
 });
 
 //Xavier function
-
 //Beer API work
 function beer() {
   var Zipcode = document.getElementById("zipCode");
@@ -109,10 +108,9 @@ function beer() {
   });
 }
 
-//  function submit()
-//  {
-//    beer();
-//  }
+function submit() {
+  beer();
+}
 
 //  submitBtn.addEventListener("click", submit);
 
@@ -125,8 +123,8 @@ submitBtn.addEventListener("click", submit);
 
 //Elizabeth: pulling music from local storage
 var favWorkouts = document.getElementById("favWorkouts");
-favWorkouts.appendChild();
+// favWorkouts.appendChild();
 
 //Elizabeth: pulling workout from local storage
 var favBrews = document.getElementById("favBrews");
-favBrews.appendChild();
+// favBrews.appendChild();
