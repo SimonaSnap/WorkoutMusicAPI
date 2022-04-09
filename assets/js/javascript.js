@@ -1,11 +1,17 @@
 //global variables
 var body = document.body;
 
-var workoutBtn = document.getElementById("workoutBtn");
+var today = moment();
 
+var submitBtn = document.getElementById("submitBtn");
+
+//maybe don't need these two variables?
+var workoutBtn = document.getElementById("workoutBtn");
 var beerBtn = document.getElementById("beerBtn");
 
 // Simona function
+var workoutSpace = document.getElementById("workout-container");
+
 var bodyParts = [
   "back",
   "cardio",
@@ -27,15 +33,43 @@ for (let i = 0; i < bodyParts.length; i++) {
   bodyPartDropdown.appendChild(optionChoice);
 }
 
+<<<<<<< HEAD
 bodyPartDropdown.addEventListener("click", function (event) {
+=======
+function makeDropdown()
+{
+  var numberDropdown = document.createElement("select");
+  var defaultOption = document.createElement("option");
+  defaultOption.selected = true;
+  defaultOption.disabled = true;
+  defaultOption.textContent = "How many exercises do you want?"
+  workoutSpace.appendChild(numberDropdown);
+  numberDropdown.appendChild(defaultOption);
+
+  for (let i = 0; i < 17; i++)
+  {
+    var numberOption = document.createElement("option");
+    numberOption.textContent = (i + 4).toString();
+    numberDropdown.appendChild(numberOption);
+  }
+  bodyPartDropdown.disabled = true;
+}
+
+bodyPartDropdown.addEventListener("click", function (event)
+{
+>>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
   event.stopPropagation();
   event.preventDefault();
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
+<<<<<<< HEAD
   console.log(optionValue);
 
   var numberDropdown = document.getElementById("numberDropdown");
 
+=======
+
+>>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
   if (optionValue == "Choose Target Body Part") {
   } else {
     //    const options = {
@@ -51,18 +85,23 @@ bodyPartDropdown.addEventListener("click", function (event) {
     //      .then(response => console.log(response))
     //      .catch(err => console.error(err));
 
+<<<<<<< HEAD
     for (let i = 0; i < 21; i++) {
       var numberOption = document.createElement("option");
       numberOption.value = (i + 4).toString();
       numberOption.textContent = (i + 4).toString();
       numberDropdown.appendChild(numberOption);
     }
+=======
+    makeDropdown();
+>>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
   }
 });
 
 //Xavier function
 //Beer API work
 
+<<<<<<< HEAD
 function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
@@ -76,12 +115,28 @@ function beer() {
 
   console.log(BrewerName);
 }
+=======
+//function beer()
+//{
+//  var Zipcode = document.getElementById("zipCode");
+//  var zipcodeInput = Zipcode.value;
 
-function submit() {
-  beer();
-}
+//  fetch(
+//    "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput,
+//    options
+//  )
+//    .then((response) => response.json())
+//    .then((response) => console.log(response))
+//    .catch((err) => console.error(err));
+//}
 
-submitBtn.addEventListener("click", submit);
+//  function submit()
+//  {
+//    beer();
+//  }
+>>>>>>> 40be649ad2eb268e9aa259df310b5fcba1c93319
+
+//  submitBtn.addEventListener("click", submit);
 
 // workoutBtn.addEventListener("click", workoutApi);
 // songBtn.addEventListener("click", beerApi);
@@ -91,5 +146,9 @@ submitBtn.addEventListener("click", submit);
 //Xavier: saving music to local storage
 
 //Elizabeth: pulling music from local storage
+var favWorkouts = document.getElementById("favWorkouts");
+favWorkouts.appendChild();
 
 //Elizabeth: pulling workout from local storage
+var favBrews = document.getElementById("favBrews");
+favBrews.appendChild();
