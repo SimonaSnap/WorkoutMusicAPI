@@ -84,7 +84,6 @@ bodyPartDropdown.addEventListener("click", function (event) {
 });
 
 //Xavier function
-
 //Beer API work
 function beer() {
   var Zipcode = document.getElementById("zipCode");
@@ -96,22 +95,43 @@ function beer() {
     if (response.ok) {
       console.log(response);
       response.json().then(function (data) {
-        console.log(data);
-        var breweryName = data[0].name;
-        var breweryUrl = data[0].website_url;
-        var breweryPhone = data[0].phone;
-        var breweryAddress = data[0].street;
+        var breweryJSON = JSON.stringify(data);
+        // console.log(data);
+        // console.log(breweryJSON);
+        var allbrewList = [];
+        // console.log(allbrewList);
+        var getbrewNames = localStorage.getItem("breweryinfo");
+        if (null != getbrewNames) {
+          allbrewList = getbrewNames.split(",");
+        }
+        for (i = 0; i < data.length; i++) {
+          var breweryName = data[i].name;
+          var breweryUrl = data[i].website_url;
+          var breweryPhone = data[i].phone;
+          var breweryAddress = data[i].street;
 
-        console.log(breweryName);
-        console.log(breweryUrl);
-        console.log(breweryPhone);
-        console.log(breweryAddress);
-        //Xavier: saving Brewery to local storage
-        localStorage.setItem("breweryName", breweryName);
-        localStorage.setItem("breweryUrl", breweryUrl);
-        localStorage.setItem("breweryPhone", breweryPhone);
-        localStorage.setItem("breweryAddress", breweryAddress);
-        localStorage.setItem("breweryList", data.name);
+          var breweriesinfo = [
+            breweryName,
+            breweryUrl,
+            breweryPhone,
+            breweryAddress,
+          ];
+          allbrewList += breweriesinfo;
+
+          console.log(breweriesinfo);
+          // console.log(breweryName);
+          // console.log(breweryUrl);
+          // console.log(breweryPhone);
+          // console.log(breweryAddress);
+
+          //Xavier: saving Brewery to local storage
+          // localStorage.setItem("breweryName", breweryName);
+          // localStorage.setItem("breweryUrl", breweryUrl);
+          // localStorage.setItem("breweryPhone", breweryPhone);
+          // localStorage.setItem("breweryAddress", breweryAddress);
+          // localStorage.setItem("breweryList", breweryJSON);
+          localStorage.setItem("breweryinfo", breweriesinfo.toString());
+        }
       });
     }
   });
@@ -132,8 +152,8 @@ submitBtn.addEventListener("click", submit);
 
 //Elizabeth: pulling music from local storage
 var favWorkouts = document.getElementById("favWorkouts");
-favWorkouts.appendChild();
+// favWorkouts.appendChild();
 
 //Elizabeth: pulling workout from local storage
 var favBrews = document.getElementById("favBrews");
-favBrews.appendChild();
+// favBrews.appendChild();
