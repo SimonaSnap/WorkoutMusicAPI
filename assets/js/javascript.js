@@ -119,12 +119,12 @@ function beer()
   });
 }
 
+
 //  function submit()
 //  {
 //    beer();
 //  }
 
-//  submitBtn.addEventListener("click", submit);
 
 // workoutBtn.addEventListener("click", workoutApi);
 // songBtn.addEventListener("click", beerApi);
