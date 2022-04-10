@@ -7,6 +7,7 @@ var submitBtn = document.getElementById("submitBtn");
 
 // Simona function
 var workoutSpace = document.getElementById("workout-container");
+
 var afterGenerate = document.getElementById("workoutDisplay");
 var body = document.body
 
@@ -30,30 +31,26 @@ function getWorkoutStorage()
 
   var inStorageNames = localStorage.getItem("workoutNames");
   var workoutInfo = [];
-  if (null != inStorageNames)
-  {
-    workoutInfo = inStorageNames.split(",")
+  if (null != inStorageNames) {
+    workoutInfo = inStorageNames.split(",");
   }
 
   var inStorageEquipment = localStorage.getItem("workoutEquipment");
   var workoutEquip = [];
-  if (null != inStorageEquipment)
-  {
-    workoutEquip = inStorageEquipment.split(",")
+  if (null != inStorageEquipment) {
+    workoutEquip = inStorageEquipment.split(",");
   }
   var inStorageUrls = localStorage.getItem("workoutGif");
   var workoutUrl = [];
-  if (null != inStorageUrls)
-  {
-    workoutUrl = inStorageUrls.split(",")
+  if (null != inStorageUrls) {
+    workoutUrl = inStorageUrls.split(",");
   }
 
   // console.log(workoutInfo)
   // console.log(workoutEquip);
   // console.log(workoutUrl);
 
-  for (let i = 0; i < (workoutInfo.length - 1); i++)
-  {
+  for (let i = 0; i < workoutInfo.length - 1; i++) {
     var names = document.getElementById((i + 10).toString());
     names.textContent = "Exercise name: " + workoutInfo[i];
     var equipment = document.getElementById((i + 50).toString());
@@ -62,7 +59,6 @@ function getWorkoutStorage()
     url.src = workoutUrl[i];
   }
 }
-
 
 var bodyPartDropdown = document.getElementById("workoutDropdown");
 for (let i = 0; i < bodyParts.length; i++)
@@ -76,21 +72,20 @@ for (let i = 0; i < bodyParts.length; i++)
 
 bodyPartDropdown.addEventListener("click", function (event)
 {
+
   event.stopPropagation();
   event.preventDefault();
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
 
-  if (optionValue == "Choose Target Body Part")
-  {
-  } else
-  {
+  if (optionValue == "Choose Target Body Part") {
+  } else {
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-        'X-RapidAPI-Key': 'd4226dfadcmsh12369317a72c986p116810jsnca27ca1b9942'
-      }
+        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+        "X-RapidAPI-Key": "d4226dfadcmsh12369317a72c986p116810jsnca27ca1b9942",
+      },
     };
 
     fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/' + optionValue, options)
@@ -161,45 +156,42 @@ bodyPartDropdown.addEventListener("click", function (event)
         }
       })
   }
-})
-
-
-
+});
 
 //Xavier function
 //Beer API work
-function beer()
-{
+function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
   fetch(
     "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
-  ).then(function (response)
-  {
-    if (response.ok)
-    {
+  ).then(function (response) {
+    if (response.ok) {
       console.log(response);
 
-      response.json().then(function (data)
-      {
+      response.json().then(function (data) {
         var breweryJSON = JSON.stringify(data);
         // console.log(data);
         // console.log(breweryJSON);
         var allbrewList = [];
         // console.log(allbrewList);
         var getbrewNames = localStorage.getItem("breweryinfo");
-        if (null != getbrewNames)
-        {
+        if (null != getbrewNames) {
           allbrewList = getbrewNames.split(",");
         }
 
-        for (i = 0; i < data.length; i++)
-        {
-          var breweryName = data[i].name;
-          var breweryUrl = data[i].website_url;
-          var breweryPhone = data[i].phone;
-          var breweryAddress = data[i].street;
+        for (i = 0; i < data.length; i++) {
+          //   var breweryName = data[i].name;
+          //   var breweryUrl = data[i].website_url;
+          //   var breweryPhone = data[i].phone;
+          //   var breweryAddress = data[i].street;
+
+          var brewery = [];
+          var breweryName = "";
+          var breweryUrl = "";
+          var breweryPhone = "";
+          var breweryAddress = "";
 
           if (breweryPhone == null)
           {
@@ -228,7 +220,6 @@ function beer()
           localStorage.setItem("brewInfo", breweryInfo);
         }
         // localStorage.setItem("breweryList", data[i]);
-
       });
     }
   });
