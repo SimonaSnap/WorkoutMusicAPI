@@ -21,54 +21,61 @@
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 
-	<body>
-		<main>
-			<!-- Header and title on page  -->
-			<header class="container is-fluid centered custom-header">
-				<h1 class="notification has-text-centered is-size-1 custom-header">
-					Barbells and Brews
-				</h1>
-			</header>
-			<section
-				class="card column is-narrow is-multiline custom-section has-text-centered"
-			>
-				<!-- Workout section -->
-				<article class="column card-content is-half is-narrow custom-art">
-					<div class="column" id="workout-container">
-						<select class="dropdown" id="workoutDropdown">
-							<option selected disabled>Choose Target Body Part</option>
-						</select>
-					</div>
-				</article>
-				<!-- Brewerys section -->
-				<article class="column card-content is-half is-narrow custom-art">
-					<div id="playlist-container">
-						<input
-							class="dropdown"
-							type="text"
-							placeholder="Zip Code"
-							id="zipCode"
-						/>
-					</div>
-				</article>
-				<!-- final submit button -->
-				<div>
-					<button class="finalserchbtn" id="submitBtn">Submit</button>
-				</div>
-			</section>
-			<!-- Saved brewery and workouts  -->
-			<section id="favorites">
-				<div id="favWorkouts"></div>
-				<div id="favBrews"></div>
-			</section>
-		</main>
-		<!-- links for js and moment -->
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-			integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		></script>
-		<script src="./assets/js/javascript.js" async defer></script>
-	</body>
+  <body>
+    <main>
+      <!-- Header and title on page  -->
+      <header class="container is-fluid centered custom-header">
+        <h1 class="notification has-text-centered is-size-1 custom-header">
+          Barbells and Brews
+        </h1>
+      </header>
+      <section
+        class="card column is-narrow is-multiline custom-section has-text-centered"
+      >
+        <!-- Workout section -->
+        <article class="column is-half is-narrow">
+          <div class="column" id="workout-container">
+            <select class="dropdown dropdown-sizeing" id="workoutDropdown">
+              <option selected disabled>Choose Target Body Part</option>
+            </select>
+          </div>
+        </article>
+        <!-- Brewerys section -->
+        <article class="column is-half is-narrow">
+          <div id="playlist-container">
+            <input
+              class="dropdown"
+              type="text"
+              placeholder="Zip Code"
+              id="zipCode"
+            />
+          </div>
+        </article>
+        <!-- final submit button -->
+        <div>
+          <button class="finalserchbtn" id="submitBtn">Submit</button>
+        </div>
+      </section>
+      <!-- Saved brewery and workouts  -->
+      <section id="favorites">
+
+        <button id="recentWorkouts">View Last Workout</button>
+        <div id="showRecentWorkout"></div>
+        <button id="recentBrews">View Last Brewery Search</button>
+        <div id="showRecentBrews">
+          <div id="brewListContent"></div>
+        </div>
+
+
+      </section>
+    </main>
+    <!-- links for js and moment -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./assets/js/javascript.js" async defer></script>
+  </body>
 </html>
