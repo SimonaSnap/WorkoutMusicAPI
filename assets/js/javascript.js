@@ -181,6 +181,11 @@ function beer() {
           var breweryPhone = "";
           var breweryAddress = "";
 
+          breweryName += data[i].name + ",";
+          breweryUrl += data[i].website_url + ",";
+          breweryPhone += data[i].phone + ",";
+          breweryAddress += data[i].street + ",";
+
           if (breweryPhone == null) {
             breweryPhone = "Phone number not available";
           }
