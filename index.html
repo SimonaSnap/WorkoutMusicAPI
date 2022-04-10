@@ -35,7 +35,7 @@
         <!-- Workout section -->
         <article class="column is-half is-narrow">
           <div class="column" id="workout-container">
-            <select class="dropdown" id="workoutDropdown">
+            <select class="dropdown dropdown-sizeing" id="workoutDropdown">
               <option selected disabled>Choose Target Body Part</option>
             </select>
           </div>
@@ -58,8 +58,15 @@
       </section>
       <!-- Saved brewery and workouts  -->
       <section id="favorites">
-        <div id="favWorkouts"></div>
-        <div id="favBrews"></div>
+
+        <button id="recentWorkouts">View Last Workout</button>
+        <div id="showRecentWorkout"></div>
+        <button id="recentBrews">View Last Brewery Search</button>
+        <div id="showRecentBrews">
+          <div id="brewListContent"></div>
+        </div>
+
+
       </section>
     </main>
     <!-- links for js and moment -->
