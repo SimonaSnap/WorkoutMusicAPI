@@ -160,10 +160,7 @@ function beer() {
     if (response.ok) {
       //console.log(response);
       response.json().then(function (data) {
-        //var breweryJSON = JSON.stringify(data);
         console.log(data);
-        // console.log(breweryJSON);
-        // console.log(allbrewList);
 
         var breweryName = "";
         var breweryUrl = "";
@@ -171,11 +168,6 @@ function beer() {
         var breweryAddress = "";
 
         for (i = 0; i < data.length; i++) {
-          //   var breweryName = data[i].name;
-          //   var breweryUrl = data[i].website_url;
-          //   var breweryPhone = data[i].phone;
-          //   var breweryAddress = data[i].street;
-
           if (breweryPhone == null) {
             breweryPhone = "Phone number not available";
           }
@@ -187,19 +179,17 @@ function beer() {
           console.log(breweryName);
           breweryAddress += data[i].street + ", ";
           console.log(breweryAddress);
+          breweryPhone += data[i].phone + ", ";
+          console.log(breweryPhone);
+          breweryUrl += data[i].website_url + ", ";
+          console.log(breweryUrl);
         }
 
-        // console.log(breweryName);
-        // console.log(breweryUrl);
-        // console.log(breweryPhone);
-        // console.log(breweryAddress);
-        // console.log(breweryInfo);
         // //Xavier: saving Brewery to local storage
         localStorage.setItem("breweryName", breweryName);
-        // localStorage.setItem("breweryUrl", breweryUrl);
-        // localStorage.setItem("breweryPhone", breweryPhone);
+        localStorage.setItem("breweryUrl", breweryUrl);
+        localStorage.setItem("breweryPhone", breweryPhone);
         localStorage.setItem("breweryAddress", breweryAddress);
-        // localStorage.setItem("brewInfo", breweryInfo);
 
         // localStorage.setItem("breweryList", data[i]);
       });
@@ -235,8 +225,38 @@ var lastBrew = document.getElementById("recentBrews");
 var lastBrewDisplay = document.getElementById("brewListContent");
 lastBrewDisplay.hidden = true;
 function getBrewList() {
-  var brewList = localStorage.getItem("brewInfo");
-  lastBrewDisplay.textContent = brewList.split(",");
+  //Name
+  var nameStorage = localStorage.getItem("breweryName");
+  var nameArray = [];
+
+  if (null != nameStorage) {
+    nameArray = nameStorage.split(", ");
+    console.log(nameArray);
+  }
+  //URL
+  var urlStorage = localStorage.getItem("breweryUrl");
+  var urlArray = [];
+
+  if (null != urlStorage) {
+    urlArray = urlStorage.split(", ");
+    console.log(urlArray);
+  }
+  //Phone
+  var phoneStorage = localStorage.getItem("breweryPhone");
+  var phoneArray = [];
+
+  if (null != phoneStorage) {
+    phoneArray = phoneStorage.split(", ");
+    console.log(phoneArray);
+  }
+  //Address
+  var addressStorage = localStorage.getItem("breweryAddress");
+  var addressArray = [];
+
+  if (null != addressStorage) {
+    addressArray = addressStorage.split(", ");
+    console.log(addressArray);
+  }
 
   if (lastBrewDisplay.hidden == false) {
     lastBrewDisplay.hidden = true;
