@@ -11,6 +11,11 @@ var beerBtn = document.getElementById("beerBtn");
 
 // Simona function
 var workoutSpace = document.getElementById("workout-container");
+var afterGenerate = document.getElementById("display-workout");
+var generateBtn = document.createElement("button");
+generateBtn.textContent = "Generate";
+var body = document.body
+body.appendChild(generateBtn);
 
 var bodyParts = [
   "back",
@@ -24,6 +29,19 @@ var bodyParts = [
   "waist",
 ];
 
+workoutSpace.hidden = true;
+
+generateBtn.addEventListener("click", function (event)
+{
+  if (workoutSpace.hidden == true)
+  {
+    workoutSpace.hidden = false;
+  } else 
+  {
+    workoutSpace.hidden = true;
+  }
+})
+
 var bodyPartDropdown = document.getElementById("workoutDropdown");
 for (let i = 0; i < bodyParts.length; i++)
 {
@@ -31,6 +49,36 @@ for (let i = 0; i < bodyParts.length; i++)
   optionChoice.value = bodyParts[i];
   optionChoice.textContent = bodyParts[i];
   bodyPartDropdown.appendChild(optionChoice);
+
+  var inStorageNames = localStorage.getItem("workoutNames");
+  var workoutInfo = [];
+  if (null != inStorageNames)
+  {
+    workoutInfo = inStorageNames.split(",")
+  }
+  var inStorageEquipment = localStorage.getItem("workoutEquipment");
+  var workoutEquip = [];
+  if (null != inStorageEquipment)
+  {
+    workoutEquip = inStorageEquipment.split(",")
+  }
+  var inStorageUrls = localStorage.getItem("workoutGif");
+  var workoutUrl = [];
+  if (null != inStorageUrls)
+  {
+    workoutUrl = inStorageUrls.split(",")
+  }
+  //console.log(workoutInfo);
+
+  for (let i = 0; i < (workoutInfo.length - 1); i++)
+  {
+    var names = document.getElementById((i + 10).toString());
+    names.textContent = "Exercise name: " + workoutInfo[i];
+    var equipment = document.getElementById((i + 50).toString());
+    equipment.textContent = "Equipment: " + workoutEquip[i];
+    var url = document.getElementById((i + 100).toString());
+    url.src = workoutUrl[i];
+  }
 }
 
 
@@ -40,9 +88,6 @@ bodyPartDropdown.addEventListener("click", function (event)
   event.preventDefault();
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
-  console.log(optionValue);
-
-  var numberDropdown = document.getElementById("numberDropdown");
 
   if (optionValue == "Choose Target Body Part")
   {
@@ -98,22 +143,33 @@ bodyPartDropdown.addEventListener("click", function (event)
                 {
                   var textInput = parseInt(exerciseValue);
                   var workout = [];
+                  var workoutName = "";
+                  var workoutEquipment = "";
+                  var workoutGif = "";
                   for (let i = 0; i < textInput; i++)
                   {
                     var randomWorkIndex = Math.floor(data.length * Math.random());
                     var randomWorkout = data[randomWorkIndex];
                     workout.push(randomWorkout);
                     console.log(workout);
-                    console.log(exerciseValue);
+                    workoutName += data[i].name + ", ";
+                    workoutEquipment += data[i].equipment + ", ";
+                    workoutGif += data[i].gifUrl + ", ";
+                    console.log(workoutName);
+                    console.log(workoutEquipment);
+                    console.log(workoutGif);
+                    localStorage.setItem("workoutNames", workoutName);
+                    localStorage.setItem("workoutEquipment", workoutEquipment);
+                    localStorage.setItem("workoutGif", workoutGif);
                   }
                 }
               })
             })
         }
       })
-
   }
 })
+
 
 
 
@@ -131,17 +187,20 @@ function beer()
     if (response.ok)
     {
       console.log(response);
-      response.json().then(function (data) {
+      response.json().then(function (data)
+      {
         var breweryJSON = JSON.stringify(data);
         // console.log(data);
         // console.log(breweryJSON);
         var allbrewList = [];
         // console.log(allbrewList);
         var getbrewNames = localStorage.getItem("breweryinfo");
-        if (null != getbrewNames) {
+        if (null != getbrewNames)
+        {
           allbrewList = getbrewNames.split(",");
         }
-        for (i = 0; i < data.length; i++) {
+        for (i = 0; i < data.length; i++)
+        {
           var breweryName = data[i].name;
           var breweryUrl = data[i].website_url;
           var breweryPhone = data[i].phone;
