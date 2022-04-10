@@ -1,37 +1,36 @@
 /* header section  for Title*/
 .custom-header {
-	background-color:white;
-	color: rgb(43, 47, 51);
-	font-family: "Beau Rivage", cursive;
-	font-size: 50%;
+  background-color: rgb(253, 233, 204);
+  color: rgb(43, 47, 51);
+  font-family: "Beau Rivage", cursive;
+  font-size: 50%;
 }
 /* main section with divs for serch for brews and workout section */
 .custom-section {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-
-/* dropdown color and sizeing  */
+/* dropdown color and sizing  */
 .dropdown {
-	border-radius: 5rem;
-	text-align: center;
-	color: rgb(43, 47, 51);
-	width: 500px;
+  border-radius: 5rem;
+  text-align: center;
+  color: rgb(43, 47, 51);
+  width: 500px;
 }
 /* submit buttons section */
 .finalserchbtn {
-	border-radius: 5rem;
-	width: 250px;
-	background-color: white;
-	text-align: center;
+  border-radius: 5rem;
+  width: 250px;
+  background-color: white;
+  text-align: center;
 }
 /* responsive display */
 @media screen and (max-width: 820px) {
-	/* Use flex-direction to stack the navbar, sidebar, and body */
-	selection{
-	  flex-direction: column;
-	}
+  /* Use flex-direction to stack the navbar, sidebar, and body */
+  selection {
+    flex-direction: column;
+  }
 }
