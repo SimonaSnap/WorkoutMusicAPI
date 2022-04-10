@@ -5,10 +5,6 @@ var today = moment();
 
 var submitBtn = document.getElementById("submitBtn");
 
-//maybe don't need these two variables?
-var workoutBtn = document.getElementById("workoutBtn");
-var beerBtn = document.getElementById("beerBtn");
-
 // Simona function
 var workoutSpace = document.getElementById("workout-container");
 
@@ -88,41 +84,76 @@ function beer() {
       console.log(response);
       response.json().then(function (data) {
         console.log(data);
-        var breweryName = data[0].name;
-        var breweryUrl = data[0].website_url;
-        var breweryPhone = data[0].phone;
-        var breweryAddress = data[0].street;
+        for (i = 0; i < data.length; i++) {
+          var breweryName = data[i].name;
+          var breweryUrl = data[i].website_url;
+          var breweryPhone = data[i].phone;
+          var breweryAddress = data[i].street;
 
-        console.log(breweryName);
-        console.log(breweryUrl);
-        console.log(breweryPhone);
-        console.log(breweryAddress);
-        //Xavier: saving Brewery to local storage
-        localStorage.setItem("breweryName", breweryName);
-        localStorage.setItem("breweryUrl", breweryUrl);
-        localStorage.setItem("breweryPhone", breweryPhone);
-        localStorage.setItem("breweryAddress", breweryAddress);
-        localStorage.setItem("breweryList", data[i]);
+          if (breweryPhone == null) {
+            breweryPhone = "Phone number not available";
+          }
+          if (breweryUrl == null) {
+            breweryUrl = "Website not available";
+          }
+          var breweryInfo = [
+            breweryName,
+            breweryAddress,
+            breweryPhone,
+            breweryUrl,
+          ];
+          console.log(breweryName);
+          console.log(breweryUrl);
+          console.log(breweryPhone);
+          console.log(breweryAddress);
+          console.log(breweryInfo);
+          //Xavier: saving Brewery to local storage
+          localStorage.setItem("breweryName", breweryName);
+          localStorage.setItem("breweryUrl", breweryUrl);
+          localStorage.setItem("breweryPhone", breweryPhone);
+          localStorage.setItem("breweryAddress", breweryAddress);
+          localStorage.setItem("brewInfo", breweryInfo);
+        }
+        // localStorage.setItem("breweryList", data[i]);
       });
     }
   });
 }
 
+//Elizabeth: triggers beer and workout functions
 function submit() {
   beer();
 }
-
-// workoutBtn.addEventListener("click", workoutApi);
-// songBtn.addEventListener("click", beerApi);
+submitBtn.addEventListener("click", submit);
 
 //Simona: saving workout to local storage
 
-submitBtn.addEventListener("click", submit);
+//Elizabeth: pulling last Workout from local storage
+var lastWorkout = document.getElementById("recentWorkouts");
+var lastWorkoutDisplay = document.getElementById("showRecentWorkout");
+lastWorkoutDisplay.hidden = true;
+function getWorkout() {
+  var workoutList = localStorage.getItem();
+  if (lastWorkoutDisplay.hidden == false) {
+    lastWorkoutDisplay.hidden = true;
+  } else {
+    lastWorkoutDisplay.hidden = false;
+  }
+}
+lastWorkout.addEventListener("click", getWorkout);
 
-//Elizabeth: pulling music from local storage
-var favWorkouts = document.getElementById("favWorkouts");
-// favWorkouts.appendChild();
+//Elizabeth: pulling last brewery search from local storage
+var lastBrew = document.getElementById("recentBrews");
+var lastBrewDisplay = document.getElementById("brewListContent");
+lastBrewDisplay.hidden = true;
+function getBrewList() {
+  var brewList = localStorage.getItem("brewInfo");
+  lastBrewDisplay.textContent = brewList.split(",");
 
-//Elizabeth: pulling workout from local storage
-var favBrews = document.getElementById("favBrews");
-// favBrews.appendChild();
+  if (lastBrewDisplay.hidden == false) {
+    lastBrewDisplay.hidden = true;
+  } else {
+    lastBrewDisplay.hidden = false;
+  }
+}
+lastBrew.addEventListener("click", getBrewList);
