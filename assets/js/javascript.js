@@ -156,7 +156,7 @@ bodyPartDropdown.addEventListener("click", function (event)
         }
       })
   }
-});
+})
 
 //Xavier function
 //Beer API work
