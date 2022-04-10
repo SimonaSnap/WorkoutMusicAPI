@@ -9,7 +9,7 @@ var submitBtn = document.getElementById("submitBtn");
 var workoutSpace = document.getElementById("workout-container");
 
 var afterGenerate = document.getElementById("workoutDisplay");
-var body = document.body
+var body = document.body;
 
 var bodyParts = [
   "back",
@@ -25,27 +25,23 @@ var bodyParts = [
 
 afterGenerate.hidden = true;
 
-function getWorkoutStorage()
-{
+function getWorkoutStorage() {
   afterGenerate.hidden = false;
 
   var inStorageNames = localStorage.getItem("workoutNames");
   var workoutInfo = [];
-  if (null != inStorageNames)
-  {
+  if (null != inStorageNames) {
     workoutInfo = inStorageNames.split(",");
   }
 
   var inStorageEquipment = localStorage.getItem("workoutEquipment");
   var workoutEquip = [];
-  if (null != inStorageEquipment)
-  {
+  if (null != inStorageEquipment) {
     workoutEquip = inStorageEquipment.split(",");
   }
   var inStorageUrls = localStorage.getItem("workoutGif");
   var workoutUrl = [];
-  if (null != inStorageUrls)
-  {
+  if (null != inStorageUrls) {
     workoutUrl = inStorageUrls.split(",");
   }
 
@@ -53,8 +49,7 @@ function getWorkoutStorage()
   // console.log(workoutEquip);
   // console.log(workoutUrl);
 
-  for (let i = 0; i < workoutInfo.length - 1; i++)
-  {
+  for (let i = 0; i < workoutInfo.length - 1; i++) {
     var names = document.getElementById((i + 10).toString());
     names.textContent = "Exercise name: " + workoutInfo[i];
     var equipment = document.getElementById((i + 50).toString());
@@ -65,27 +60,24 @@ function getWorkoutStorage()
 }
 
 var bodyPartDropdown = document.getElementById("workoutDropdown");
-for (let i = 0; i < bodyParts.length; i++)
-{
+for (let i = 0; i < bodyParts.length; i++) {
   var optionChoice = document.createElement("option");
   optionChoice.value = bodyParts[i];
   optionChoice.textContent = bodyParts[i];
   bodyPartDropdown.appendChild(optionChoice);
 }
 
-
-bodyPartDropdown.addEventListener("click", function (event)
-{
-
+bodyPartDropdown.addEventListener("click", function (event) {
   event.stopPropagation();
   event.preventDefault();
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
+  console.log(optionValue);
 
-  if (optionValue == "Choose Target Body Part")
-  {
-  } else
-  {
+  var numberDropdown = document.getElementById("numberDropdown");
+
+  if (optionValue == "Choose Target Body Part") {
+  } else {
     const options = {
       method: "GET",
       headers: {
@@ -94,145 +86,128 @@ bodyPartDropdown.addEventListener("click", function (event)
       },
     };
 
-    fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/' + optionValue, options)
-      .then(function (response)
-      {
-        if (response.ok)
-        {
-          response.json()
-            .then(function (data)
-            {
-              console.log(data);
-              var numberDropdown = document.createElement("select");
-              numberDropdown.setAttribute("class", "dropdown");
-              var defaultOption = document.createElement("option");
-              defaultOption.selected = true;
-              defaultOption.disabled = true;
-              defaultOption.textContent = "How many exercises do you want?";
-              defaultOption.value = "How many exercises do you want?";
-              workoutSpace.appendChild(numberDropdown);
-              numberDropdown.appendChild(defaultOption);
+    fetch(
+      "https://exercisedb.p.rapidapi.com/exercises/bodyPart/" + optionValue,
+      options
+    ).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+          var numberDropdown = document.createElement("select");
+          numberDropdown.setAttribute("class", "dropdown");
+          var defaultOption = document.createElement("option");
+          defaultOption.selected = true;
+          defaultOption.disabled = true;
+          defaultOption.textContent = "How many exercises do you want?";
+          defaultOption.value = "How many exercises do you want?";
+          workoutSpace.appendChild(numberDropdown);
+          numberDropdown.appendChild(defaultOption);
 
-              for (let i = 0; i < 17; i++)
-              {
-                var numberOption = document.createElement("option");
-                numberOption.textContent = (i + 4).toString();
-                numberOption.value = (i + 4).toString();
-                numberDropdown.appendChild(numberOption);
+          for (let i = 0; i < 17; i++) {
+            var numberOption = document.createElement("option");
+            numberOption.textContent = (i + 4).toString();
+            numberOption.value = (i + 4).toString();
+            numberDropdown.appendChild(numberOption);
+          }
+          bodyPartDropdown.disabled = true;
+
+          numberDropdown.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var exerciseValue =
+              numberDropdown.options[numberDropdown.selectedIndex].value;
+
+            if (exerciseValue == "How many exercises do you want?") {
+            } else {
+              var textInput = parseInt(exerciseValue);
+              var workout = [];
+              var workoutName = "";
+              var workoutEquipment = "";
+              var workoutGif = "";
+              for (let i = 0; i < textInput; i++) {
+                var randomWorkIndex = Math.floor(data.length * Math.random());
+                var randomWorkout = data[randomWorkIndex];
+                workout.push(randomWorkout);
+                //console.log(workout);
+                workoutName += data[i].name + ", ";
+                workoutEquipment += data[i].equipment + ", ";
+                workoutGif += data[i].gifUrl + ", ";
+                console.log(workoutName);
+                console.log(workoutEquipment);
+                console.log(workoutGif);
+                localStorage.setItem("workoutNames", workoutName);
+                localStorage.setItem("workoutEquipment", workoutEquipment);
+                localStorage.setItem("workoutGif", workoutGif);
               }
-              bodyPartDropdown.disabled = true;
-
-              numberDropdown.addEventListener("click", function (event)
-              {
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                var exerciseValue = numberDropdown.options[numberDropdown.selectedIndex].value;
-
-                if (exerciseValue == "How many exercises do you want?")
-                {
-                }
-                else
-                {
-                  var textInput = parseInt(exerciseValue);
-                  var workout = [];
-                  var workoutName = "";
-                  var workoutEquipment = "";
-                  var workoutGif = "";
-                  for (let i = 0; i < textInput; i++)
-                  {
-                    var randomWorkIndex = Math.floor(data.length * Math.random());
-                    var randomWorkout = data[randomWorkIndex];
-                    workout.push(randomWorkout);
-                    //console.log(workout);
-                    workoutName += data[i].name + ", ";
-                    workoutEquipment += data[i].equipment + ", ";
-                    workoutGif += data[i].gifUrl + ", ";
-                    console.log(workoutName);
-                    console.log(workoutEquipment);
-                    console.log(workoutGif);
-                    localStorage.setItem("workoutNames", workoutName);
-                    localStorage.setItem("workoutEquipment", workoutEquipment);
-                    localStorage.setItem("workoutGif", workoutGif);
-                  }
-                }
-              })
-            })
-        }
-      })
+            }
+          });
+        });
+      }
+    });
   }
-})
+});
 
 //Xavier function
 //Beer API work
-function beer()
-{
+function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
   fetch(
     "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
-  ).then(function (response)
-  {
-    if (response.ok)
-    {
+  ).then(function (response) {
+    if (response.ok) {
       //console.log(response);
-      response.json()
-        .then(function (data)
-        {
-          //var breweryJSON = JSON.stringify(data);
-          console.log(data);
-          // console.log(breweryJSON);
-          // console.log(allbrewList);
+      response.json().then(function (data) {
+        //var breweryJSON = JSON.stringify(data);
+        console.log(data);
+        // console.log(breweryJSON);
+        // console.log(allbrewList);
 
-          var breweryName = "";
-          var breweryUrl = "";
-          var breweryPhone = "";
-          var breweryAddress = "";
+        var breweryName = "";
+        var breweryUrl = "";
+        var breweryPhone = "";
+        var breweryAddress = "";
 
-          for (i = 0; i < data.length; i++)
-          {
-            //   var breweryName = data[i].name;
-            //   var breweryUrl = data[i].website_url;
-            //   var breweryPhone = data[i].phone;
-            //   var breweryAddress = data[i].street;
+        for (i = 0; i < data.length; i++) {
+          //   var breweryName = data[i].name;
+          //   var breweryUrl = data[i].website_url;
+          //   var breweryPhone = data[i].phone;
+          //   var breweryAddress = data[i].street;
 
-            if (breweryPhone == null)
-            {
-              breweryPhone = "Phone number not available";
-            }
-            if (breweryUrl == null)
-            {
-              breweryUrl = "Website not available";
-            }
-
-            breweryName += data[i].name + ", ";
-            console.log(breweryName);
-            breweryAddress += data[i].street + ", ";
-            console.log(breweryAddress);
+          if (breweryPhone == null) {
+            breweryPhone = "Phone number not available";
+          }
+          if (breweryUrl == null) {
+            breweryUrl = "Website not available";
           }
 
-          // console.log(breweryName);
-          // console.log(breweryUrl);
-          // console.log(breweryPhone);
-          // console.log(breweryAddress);
-          // console.log(breweryInfo);
-          // //Xavier: saving Brewery to local storage
-          localStorage.setItem("breweryName", breweryName);
-          // localStorage.setItem("breweryUrl", breweryUrl);
-          // localStorage.setItem("breweryPhone", breweryPhone);
-          localStorage.setItem("breweryAddress", breweryAddress);
-          // localStorage.setItem("brewInfo", breweryInfo);
+          breweryName += data[i].name + ", ";
+          console.log(breweryName);
+          breweryAddress += data[i].street + ", ";
+          console.log(breweryAddress);
+        }
 
-          // localStorage.setItem("breweryList", data[i]);
-        });
+        // console.log(breweryName);
+        // console.log(breweryUrl);
+        // console.log(breweryPhone);
+        // console.log(breweryAddress);
+        // console.log(breweryInfo);
+        // //Xavier: saving Brewery to local storage
+        localStorage.setItem("breweryName", breweryName);
+        // localStorage.setItem("breweryUrl", breweryUrl);
+        // localStorage.setItem("breweryPhone", breweryPhone);
+        localStorage.setItem("breweryAddress", breweryAddress);
+        // localStorage.setItem("brewInfo", breweryInfo);
+
+        // localStorage.setItem("breweryList", data[i]);
+      });
     }
   });
 }
 
-function submit()
-{
+function submit() {
   getWorkoutStorage();
   beer();
 }
@@ -245,14 +220,11 @@ submitBtn.addEventListener("click", submit);
 var lastWorkout = document.getElementById("recentWorkouts");
 var lastWorkoutDisplay = document.getElementById("showRecentWorkout");
 lastWorkoutDisplay.hidden = true;
-function getWorkout()
-{
+function getWorkout() {
   var workoutList = localStorage.getItem();
-  if (lastWorkoutDisplay.hidden == false)
-  {
+  if (lastWorkoutDisplay.hidden == false) {
     lastWorkoutDisplay.hidden = true;
-  } else
-  {
+  } else {
     lastWorkoutDisplay.hidden = false;
   }
 }
@@ -262,16 +234,13 @@ lastWorkout.addEventListener("click", getWorkout);
 var lastBrew = document.getElementById("recentBrews");
 var lastBrewDisplay = document.getElementById("brewListContent");
 lastBrewDisplay.hidden = true;
-function getBrewList()
-{
+function getBrewList() {
   var brewList = localStorage.getItem("brewInfo");
   lastBrewDisplay.textContent = brewList.split(",");
 
-  if (lastBrewDisplay.hidden == false)
-  {
+  if (lastBrewDisplay.hidden == false) {
     lastBrewDisplay.hidden = true;
-  } else
-  {
+  } else {
     lastBrewDisplay.hidden = false;
   }
 }
