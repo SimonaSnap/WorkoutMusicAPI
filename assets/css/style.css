@@ -1,6 +1,6 @@
 /* header section  for Title*/
 .custom-header {
-	background-color: white;
+	background-color: rgb(255, 224, 177);
 	color: rgb(43, 47, 51);
 	font-family: "Beau Rivage", cursive;
 	font-size: 50%;
@@ -14,10 +14,9 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	;
 }
-.custom-art{
-border: 4px solid black
+.custom-art {
+	border: 4px solid black;
 }
 /* dropdown color and sizeing  */
 .dropdown {
@@ -40,4 +39,3 @@ border: 4px solid black
 		flex-direction: column;
 	}
 }
-
