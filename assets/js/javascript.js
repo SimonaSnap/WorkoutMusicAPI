@@ -31,18 +31,21 @@ function getWorkoutStorage()
 
   var inStorageNames = localStorage.getItem("workoutNames");
   var workoutInfo = [];
-  if (null != inStorageNames) {
+  if (null != inStorageNames)
+  {
     workoutInfo = inStorageNames.split(",");
   }
 
   var inStorageEquipment = localStorage.getItem("workoutEquipment");
   var workoutEquip = [];
-  if (null != inStorageEquipment) {
+  if (null != inStorageEquipment)
+  {
     workoutEquip = inStorageEquipment.split(",");
   }
   var inStorageUrls = localStorage.getItem("workoutGif");
   var workoutUrl = [];
-  if (null != inStorageUrls) {
+  if (null != inStorageUrls)
+  {
     workoutUrl = inStorageUrls.split(",");
   }
 
@@ -50,7 +53,8 @@ function getWorkoutStorage()
   // console.log(workoutEquip);
   // console.log(workoutUrl);
 
-  for (let i = 0; i < workoutInfo.length - 1; i++) {
+  for (let i = 0; i < workoutInfo.length - 1; i++)
+  {
     var names = document.getElementById((i + 10).toString());
     names.textContent = "Exercise name: " + workoutInfo[i];
     var equipment = document.getElementById((i + 50).toString());
@@ -78,8 +82,10 @@ bodyPartDropdown.addEventListener("click", function (event)
   var optionValue =
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
 
-  if (optionValue == "Choose Target Body Part") {
-  } else {
+  if (optionValue == "Choose Target Body Part")
+  {
+  } else
+  {
     const options = {
       method: "GET",
       headers: {
@@ -160,67 +166,67 @@ bodyPartDropdown.addEventListener("click", function (event)
 
 //Xavier function
 //Beer API work
-function beer() {
+function beer()
+{
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
   fetch(
     "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
-  ).then(function (response) {
-    if (response.ok) {
-      console.log(response);
+  ).then(function (response)
+  {
+    if (response.ok)
+    {
+      //console.log(response);
+      response.json()
+        .then(function (data)
+        {
+          //var breweryJSON = JSON.stringify(data);
+          console.log(data);
+          // console.log(breweryJSON);
+          // console.log(allbrewList);
 
-      response.json().then(function (data) {
-        var breweryJSON = JSON.stringify(data);
-        // console.log(data);
-        // console.log(breweryJSON);
-        var allbrewList = [];
-        // console.log(allbrewList);
-        var getbrewNames = localStorage.getItem("breweryinfo");
-        if (null != getbrewNames) {
-          allbrewList = getbrewNames.split(",");
-        }
-
-        for (i = 0; i < data.length; i++) {
-          //   var breweryName = data[i].name;
-          //   var breweryUrl = data[i].website_url;
-          //   var breweryPhone = data[i].phone;
-          //   var breweryAddress = data[i].street;
-
-          var brewery = [];
           var breweryName = "";
           var breweryUrl = "";
           var breweryPhone = "";
           var breweryAddress = "";
 
-          if (breweryPhone == null)
+          for (i = 0; i < data.length; i++)
           {
-            breweryPhone = "Phone number not available";
+            //   var breweryName = data[i].name;
+            //   var breweryUrl = data[i].website_url;
+            //   var breweryPhone = data[i].phone;
+            //   var breweryAddress = data[i].street;
+
+            if (breweryPhone == null)
+            {
+              breweryPhone = "Phone number not available";
+            }
+            if (breweryUrl == null)
+            {
+              breweryUrl = "Website not available";
+            }
+
+            breweryName += data[i].name + ", ";
+            console.log(breweryName);
+            breweryAddress += data[i].street + ", ";
+            console.log(breweryAddress);
           }
-          if (breweryUrl == null)
-          {
-            breweryUrl = "Website not available";
-          }
-          var breweryInfo = [
-            breweryName,
-            breweryAddress,
-            breweryPhone,
-            breweryUrl,
-          ];
-          console.log(breweryName);
-          console.log(breweryUrl);
-          console.log(breweryPhone);
-          console.log(breweryAddress);
-          console.log(breweryInfo);
-          //Xavier: saving Brewery to local storage
+
+          // console.log(breweryName);
+          // console.log(breweryUrl);
+          // console.log(breweryPhone);
+          // console.log(breweryAddress);
+          // console.log(breweryInfo);
+          // //Xavier: saving Brewery to local storage
           localStorage.setItem("breweryName", breweryName);
-          localStorage.setItem("breweryUrl", breweryUrl);
-          localStorage.setItem("breweryPhone", breweryPhone);
+          // localStorage.setItem("breweryUrl", breweryUrl);
+          // localStorage.setItem("breweryPhone", breweryPhone);
           localStorage.setItem("breweryAddress", breweryAddress);
-          localStorage.setItem("brewInfo", breweryInfo);
-        }
-        // localStorage.setItem("breweryList", data[i]);
-      });
+          // localStorage.setItem("brewInfo", breweryInfo);
+
+          // localStorage.setItem("breweryList", data[i]);
+        });
     }
   });
 }
