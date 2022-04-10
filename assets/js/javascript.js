@@ -7,11 +7,8 @@ var submitBtn = document.getElementById("submitBtn");
 
 // Simona function
 var workoutSpace = document.getElementById("workout-container");
-var afterGenerate = document.getElementById("display-workout");
-var generateBtn = document.createElement("button");
-generateBtn.textContent = "Generate";
+var afterGenerate = document.getElementById("workoutDisplay");
 var body = document.body
-body.appendChild(generateBtn);
 
 var bodyParts = [
   "back",
@@ -25,26 +22,11 @@ var bodyParts = [
   "waist",
 ];
 
-workoutSpace.hidden = true;
+afterGenerate.hidden = true;
 
-generateBtn.addEventListener("click", function (event)
+function getWorkoutStorage()
 {
-  if (workoutSpace.hidden == true)
-  {
-    workoutSpace.hidden = false;
-  } else 
-  {
-    workoutSpace.hidden = true;
-  }
-})
-
-var bodyPartDropdown = document.getElementById("workoutDropdown");
-for (let i = 0; i < bodyParts.length; i++)
-{
-  var optionChoice = document.createElement("option");
-  optionChoice.value = bodyParts[i];
-  optionChoice.textContent = bodyParts[i];
-  bodyPartDropdown.appendChild(optionChoice);
+  afterGenerate.hidden = false;
 
   var inStorageNames = localStorage.getItem("workoutNames");
   var workoutInfo = [];
@@ -52,6 +34,7 @@ for (let i = 0; i < bodyParts.length; i++)
   {
     workoutInfo = inStorageNames.split(",")
   }
+
   var inStorageEquipment = localStorage.getItem("workoutEquipment");
   var workoutEquip = [];
   if (null != inStorageEquipment)
@@ -64,7 +47,10 @@ for (let i = 0; i < bodyParts.length; i++)
   {
     workoutUrl = inStorageUrls.split(",")
   }
-  //console.log(workoutInfo);
+
+  // console.log(workoutInfo)
+  // console.log(workoutEquip);
+  // console.log(workoutUrl);
 
   for (let i = 0; i < (workoutInfo.length - 1); i++)
   {
@@ -75,6 +61,16 @@ for (let i = 0; i < bodyParts.length; i++)
     var url = document.getElementById((i + 100).toString());
     url.src = workoutUrl[i];
   }
+}
+
+
+var bodyPartDropdown = document.getElementById("workoutDropdown");
+for (let i = 0; i < bodyParts.length; i++)
+{
+  var optionChoice = document.createElement("option");
+  optionChoice.value = bodyParts[i];
+  optionChoice.textContent = bodyParts[i];
+  bodyPartDropdown.appendChild(optionChoice);
 }
 
 
@@ -107,6 +103,7 @@ bodyPartDropdown.addEventListener("click", function (event)
             {
               console.log(data);
               var numberDropdown = document.createElement("select");
+              numberDropdown.setAttribute("class", "dropdown");
               var defaultOption = document.createElement("option");
               defaultOption.selected = true;
               defaultOption.disabled = true;
@@ -147,7 +144,7 @@ bodyPartDropdown.addEventListener("click", function (event)
                     var randomWorkIndex = Math.floor(data.length * Math.random());
                     var randomWorkout = data[randomWorkIndex];
                     workout.push(randomWorkout);
-                    console.log(workout);
+                    //console.log(workout);
                     workoutName += data[i].name + ", ";
                     workoutEquipment += data[i].equipment + ", ";
                     workoutGif += data[i].gifUrl + ", ";
@@ -197,16 +194,19 @@ function beer()
           allbrewList = getbrewNames.split(",");
         }
 
-        for (i = 0; i < data.length; i++) {
+        for (i = 0; i < data.length; i++)
+        {
           var breweryName = data[i].name;
           var breweryUrl = data[i].website_url;
           var breweryPhone = data[i].phone;
           var breweryAddress = data[i].street;
 
-          if (breweryPhone == null) {
+          if (breweryPhone == null)
+          {
             breweryPhone = "Phone number not available";
           }
-          if (breweryUrl == null) {
+          if (breweryUrl == null)
+          {
             breweryUrl = "Website not available";
           }
           var breweryInfo = [
@@ -233,8 +233,10 @@ function beer()
     }
   });
 }
-//Elizabeth: triggers beer and workout functions
-function submit() {
+
+function submit()
+{
+  getWorkoutStorage();
   beer();
 }
 
@@ -246,11 +248,14 @@ submitBtn.addEventListener("click", submit);
 var lastWorkout = document.getElementById("recentWorkouts");
 var lastWorkoutDisplay = document.getElementById("showRecentWorkout");
 lastWorkoutDisplay.hidden = true;
-function getWorkout() {
+function getWorkout()
+{
   var workoutList = localStorage.getItem();
-  if (lastWorkoutDisplay.hidden == false) {
+  if (lastWorkoutDisplay.hidden == false)
+  {
     lastWorkoutDisplay.hidden = true;
-  } else {
+  } else
+  {
     lastWorkoutDisplay.hidden = false;
   }
 }
@@ -260,13 +265,16 @@ lastWorkout.addEventListener("click", getWorkout);
 var lastBrew = document.getElementById("recentBrews");
 var lastBrewDisplay = document.getElementById("brewListContent");
 lastBrewDisplay.hidden = true;
-function getBrewList() {
+function getBrewList()
+{
   var brewList = localStorage.getItem("brewInfo");
   lastBrewDisplay.textContent = brewList.split(",");
 
-  if (lastBrewDisplay.hidden == false) {
+  if (lastBrewDisplay.hidden == false)
+  {
     lastBrewDisplay.hidden = true;
-  } else {
+  } else
+  {
     lastBrewDisplay.hidden = false;
   }
 }
