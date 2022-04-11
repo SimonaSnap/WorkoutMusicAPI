@@ -11,6 +11,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+
 }
 
 /* dropdown color and sizing  */
@@ -20,6 +21,7 @@
 	text-align: center;
 	color: rgb(43, 47, 51);
 	width: 500px;
+	
 }
 /* submit buttons section */
 .finalserchbtn {
@@ -35,4 +37,7 @@
 	selection {
 		flex-direction: column;
 	}
+}
+.test{
+	background-color: white;
 }
