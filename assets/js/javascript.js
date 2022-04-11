@@ -259,11 +259,37 @@ submitBtn.addEventListener("click", submit);
 var lastWorkout = document.getElementById("recentWorkouts");
 var lastWorkoutDisplay = document.getElementById("showRecentWorkout");
 lastWorkoutDisplay.hidden = true;
-function getWorkout()
-{
-  var workoutList = localStorage.getItem();
-  if (lastWorkoutDisplay.hidden == false)
-  {
+
+function getWorkout() {
+  // Workout Name
+  var exerciseNameStorage = localStorage.getItem("workoutNames");
+  var exerNameArray = [];
+
+  if (null != exerciseNameStorage) {
+    exerNameArray = exerciseNameStorage.split(",");
+    console.log(exerNameArray);
+  }
+
+  // Workout Equipment
+  var exerEquipmentStorage = localStorage.getItem("workoutEquipment");
+  var exerEquipmentArray = [];
+
+  if (null != exerEquipmentStorage) {
+    exerEquipmentArray = exerEquipmentStorage.split(",");
+    console.log(exerEquipmentArray);
+  }
+
+  // Workout Gif
+  var exerGifStorage = localStorage.getItem("workoutGif");
+  var exerGifArray = [];
+
+  if (null != exerGifStorage) {
+    exerGifArray = exerGifStorage.split(",");
+    console.log(exerGifArray);
+  }
+  // Last workout Display content is shown and then hidden again each time the button is pressed
+  if (lastWorkoutDisplay.hidden == false) {
+
     lastWorkoutDisplay.hidden = true;
   } else
   {
@@ -315,8 +341,11 @@ function getBrewList()
     console.log(addressArray);
   }
 
-  if (lastBrewDisplay.hidden == false)
-  {
+  lastBrewDisplay.textContent =
+    nameArray + phoneArray + addressArray + urlArray;
+
+  // Last Brewery Seach Display is shown and hidden each time the button is pressed
+  if (lastBrewDisplay.hidden == false) {
     lastBrewDisplay.hidden = true;
   } else
   {
