@@ -11,6 +11,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	background-color: rgb(253, 233, 204);
 
 }
 
@@ -21,6 +22,8 @@
 	text-align: center;
 	color: rgb(43, 47, 51);
 	width: 500px;
+	justify-content: center;
+	
 	
 }
 /* submit buttons section */
@@ -38,6 +41,7 @@
 		flex-direction: column;
 	}
 }
-.test{
-	background-color: white;
+.pulleddata{
+	background-color: rgb(253, 233, 204);
+	font-size: 15px;
 }
