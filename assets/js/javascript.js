@@ -12,15 +12,15 @@ var afterGenerate = document.getElementById("workoutDisplay");
 var body = document.body;
 
 var bodyParts = [
-  "back",
-  "cardio",
-  "chest",
-  "lower arms",
-  "lower legs",
-  "shoulders",
-  "upper arms",
-  "upper legs",
-  "waist",
+	"back",
+	"cardio",
+	"chest",
+	"lower arms",
+	"lower legs",
+	"shoulders",
+	"upper arms",
+	"upper legs",
+	"waist",
 ];
 
 //this doesn't need to be present unless there is something stored in localstorage that the user wants to get
