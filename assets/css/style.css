@@ -9,13 +9,13 @@
 
 .custom-section {
 	display: flex;
-	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-evenly;
 }
 
 /* dropdown color and sizing  */
 .dropdown {
+	border: 2px solid black;
 	border-radius: 5rem;
 	text-align: center;
 	color: rgb(43, 47, 51);
@@ -23,6 +23,7 @@
 }
 /* submit buttons section */
 .finalserchbtn {
+	border: 2px solid black;
 	border-radius: 5rem;
 	width: 250px;
 	background-color: white;

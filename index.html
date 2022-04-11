@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="en" class="multi-bg">
-<<<<<<< HEAD
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Barbells and Brews</title>
 		<!-- links to style and font  -->
 		<link rel="stylesheet" href="./assets/css/reset.css" />
@@ -31,18 +30,17 @@
 				</h1>
 			</header>
 			<section
-				class="card column is-narrow is-multiline custom-section has-text-centered"
+				class="card is-narrow pt-2 is-multiline custom-section has-text-centered"
 			>
-				<!-- Workout section -->
-				<article class="column is-half is-narrow">
-					<div class="column" id="workout-container">
-						<select class="dropdown dropdown-sizeing" id="workoutDropdown">
-							<option selected disabled>Choose Target Body Part</option>
-						</select>
-					</div>
+				<!-- workout selector -->
+				<article class="is-half is-narrow">
+					<select class="dropdown dropdown-sizeing" id="workoutDropdown">
+						<option selected disabled>Choose Target Body Part</option>
+					</select>
 				</article>
+
 				<!-- Brewerys section -->
-				<article class="column is-half is-narrow">
+				<article class="is-half is-narrow">
 					<div id="playlist-container">
 						<input
 							class="dropdown"
@@ -52,11 +50,17 @@
 						/>
 					</div>
 				</article>
+			</section>
+
+			<section
+				class="card is-narrow pb-2 is-multiline custom-section has-text-centered"
+			>
 				<!-- final submit button -->
 				<div>
-					<button class="finalserchbtn" id="submitBtn">Submit</button>
+					<button class="finalserchbtn button" id="submitBtn">Submit</button>
 				</div>
 			</section>
+
 			<!-- Saved brewery and workouts  -->
 			<section id="favorites">
 				<button id="recentWorkouts">View Last Workout</button>
@@ -64,6 +68,199 @@
 				<button id="recentBrews">View Last Brewery Search</button>
 				<div id="showRecentBrews">
 					<div id="brewListContent"></div>
+				</div>
+			</section>
+
+			<!-- Workout section -->
+			<section>
+				<div id="workoutDisplay">
+					<ul>
+						<li>
+							<h3 id="10"></h3>
+						</li>
+						<li>
+							<h4 id="50"></h4>
+						</li>
+						<li>
+							<img id="100" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="11"></h3>
+						</li>
+						<li>
+							<h4 id="51"></h4>
+						</li>
+						<li>
+							<img id="101" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="12"></h3>
+						</li>
+						<li>
+							<h4 id="52"></h4>
+						</li>
+						<li>
+							<img id="102" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="13"></h3>
+						</li>
+						<li>
+							<h4 id="53"></h4>
+						</li>
+						<li>
+							<img id="103" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="14"></h3>
+						</li>
+						<li>
+							<h4 id="54"></h4>
+						</li>
+						<li>
+							<img id="104" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="15"></h3>
+						</li>
+						<li>
+							<h4 id="55"></h4>
+						</li>
+						<li>
+							<img id="105" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="16"></h3>
+						</li>
+						<li>
+							<h4 id="56"></h4>
+						</li>
+						<li>
+							<img id="106" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="17"></h3>
+						</li>
+						<li>
+							<h4 id="57"></h4>
+						</li>
+						<li>
+							<img id="107" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="18"></h3>
+						</li>
+						<li>
+							<h4 id="58"></h4>
+						</li>
+						<li>
+							<img id="108" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="19"></h3>
+						</li>
+						<li>
+							<h4 id="59"></h4>
+						</li>
+						<li>
+							<img id="109" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="20"></h3>
+						</li>
+						<li>
+							<h4 id="60"></h4>
+						</li>
+						<li>
+							<img id="110" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="21"></h3>
+						</li>
+						<li>
+							<h4 id="61"></h4>
+						</li>
+						<li>
+							<img id="111" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="22"></h3>
+						</li>
+						<li>
+							<h4 id="62"></h4>
+						</li>
+						<li>
+							<img id="112" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="23"></h3>
+						</li>
+						<li>
+							<h4 id="63"></h4>
+						</li>
+						<li>
+							<img id="113" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="24"></h3>
+						</li>
+						<li>
+							<h4 id="64"></h4>
+						</li>
+						<li>
+							<img id="114" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="25"></h3>
+						</li>
+						<li>
+							<h4 id="65"></h4>
+						</li>
+						<li>
+							<img id="115" />
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3 id="26"></h3>
+						</li>
+						<li>
+							<h4 id="66"></h4>
+						</li>
+						<li>
+							<img id="116" />
+						</li>
+					</ul>
 				</div>
 			</section>
 		</main>
@@ -76,279 +273,4 @@
 		></script>
 		<script src="./assets/js/javascript.js" async defer></script>
 	</body>
-=======
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barbells and Brews</title>
-  <!-- links to style and font  -->
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Montserrat:wght@300&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
-
-<body>
-  <main>
-    <!-- Header and title on page  -->
-    <header class="container is-fluid centered custom-header">
-      <h1 class="notification has-text-centered is-size-1 custom-header">
-        Barbells and Brews
-      </h1>
-    </header>
-    <section class="card column is-narrow is-multiline custom-section has-text-centered">
-      <!-- Workout section -->
-      <article class="column is-half is-narrow">
-        <div class="column" id="workout-container">
-          <select class="dropdown dropdown-sizeing" id="workoutDropdown">
-            <option selected disabled>Choose Target Body Part</option>
-          </select>
-          <div id="workoutDisplay">
-            <ul>
-              <li>
-                <h3 id="10"></h3>
-              </li>
-              <li>
-                <h4 id="50"></h4>
-              </li>
-              <li>
-                <img id="100">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="11"></h3>
-              </li>
-              <li>
-                <h4 id="51"></h4>
-              </li>
-              <li>
-                <img id="101">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="12"></h3>
-              </li>
-              <li>
-                <h4 id="52"></h4>
-              </li>
-              <li>
-                <img id="102">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="13"></h3>
-              </li>
-              <li>
-                <h4 id="53"></h4>
-              </li>
-              <li>
-                <img id="103">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="14"></h3>
-              </li>
-              <li>
-                <h4 id="54"></h4>
-              </li>
-              <li>
-                <img id="104">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="15"></h3>
-              </li>
-              <li>
-                <h4 id="55"></h4>
-              </li>
-              <li>
-                <img id="105">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="16"></h3>
-              </li>
-              <li>
-                <h4 id="56"></h4>
-              </li>
-              <li>
-                <img id="106">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="17"></h3>
-              </li>
-              <li>
-                <h4 id="57"></h4>
-              </li>
-              <li>
-                <img id="107">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="18"></h3>
-              </li>
-              <li>
-                <h4 id="58"></h4>
-              </li>
-              <li>
-                <img id="108">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="19"></h3>
-              </li>
-              <li>
-                <h4 id="59"></h4>
-              </li>
-              <li>
-                <img id="109">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="20"></h3>
-              </li>
-              <li>
-                <h4 id="60"></h4>
-              </li>
-              <li>
-                <img id="110">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="21"></h3>
-              </li>
-              <li>
-                <h4 id="61"></h4>
-              </li>
-              <li>
-                <img id="111">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="22"></h3>
-              </li>
-              <li>
-                <h4 id="62"></h4>
-              </li>
-              <li>
-                <img id="112">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="23"></h3>
-              </li>
-              <li>
-                <h4 id="63"></h4>
-              </li>
-              <li>
-                <img id="113">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="24"></h3>
-              </li>
-              <li>
-                <h4 id="64"></h4>
-              </li>
-              <li>
-                <img id="114">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="25"></h3>
-              </li>
-              <li>
-                <h4 id="65"></h4>
-              </li>
-              <li>
-                <img id="115">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="26"></h3>
-              </li>
-              <li>
-                <h4 id="66"></h4>
-              </li>
-              <li>
-                <img id="116">
-              </li>
-            </ul>
-          </div>
-        </div>
-<<<<<<< HEAD
-      </section>
-      <!-- Saved brewery and workouts  -->
-      <section id="favorites">
-
-        <button id="recentWorkouts">View Last Workout</button>
-        <div id="showRecentWorkout"></div>
-        <button id="recentBrews">View Last Brewery Search</button>
-        <div id="showRecentBrews">
-          <div id="brewListContent"></div>
-        </div>
-
-
-      </section>
-    </main>
-    <!-- links for js and moment -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./assets/js/javascript.js" async defer></script>
-  </body>
->>>>>>> 4eff2693b9b712f7f1bf6c2d00c72c57e9e2513e
 </html>
-=======
-      </article>
-      <!-- Brewerys section -->
-      <article class="column is-half is-narrow">
-        <div id="playlist-container">
-          <input class="dropdown" type="text" placeholder="Zip Code" id="zipCode" />
-        </div>
-      </article>
-      <!-- final submit button -->
-      <div>
-        <button class="finalserchbtn" id="submitBtn">Submit</button>
-      </div>
-    </section>
-    <!-- Saved brewery and workouts  -->
-    <section id="favorites">
-      <div id="favWorkouts"></div>
-      <div id="favBrews"></div>
-    </section>
-  </main>
-  <!-- links for js and moment -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./assets/js/javascript.js" async defer></script>
-</body>
-
-</html>
->>>>>>> ef91e9a (workoutAPI functionality is done,)
