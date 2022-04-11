@@ -26,8 +26,7 @@ var bodyParts = [
 //this doesn't need to be present unless there is something stored in localstorage that the user wants to get
 afterGenerate.hidden = true;
 
-function getWorkoutStorage()
-{
+function getWorkoutStorage() {
   //this is the user getting localstorage stuff and therefore aftergenerate is no longer hidden
   afterGenerate.hidden = false;
 
@@ -37,24 +36,21 @@ function getWorkoutStorage()
   // Name of the Exercise
   var inStorageNames = localStorage.getItem("workoutNames");
   var workoutInfo = [];
-  if (null != inStorageNames)
-  {
+  if (null != inStorageNames) {
     workoutInfo = inStorageNames.split(",");
   }
 
   // Equipment needed for the Exercise
   var inStorageEquipment = localStorage.getItem("workoutEquipment");
   var workoutEquip = [];
-  if (null != inStorageEquipment)
-  {
+  if (null != inStorageEquipment) {
     workoutEquip = inStorageEquipment.split(",");
   }
 
   // Gif of the exercise being done
   var inStorageUrls = localStorage.getItem("workoutGif");
   var workoutUrl = [];
-  if (null != inStorageUrls)
-  {
+  if (null != inStorageUrls) {
     workoutUrl = inStorageUrls.split(",");
   }
 
@@ -65,8 +61,7 @@ function getWorkoutStorage()
   //this then places the data in the arrays into empty elements made in the html
   //the last item set in localStorage has a comma after it because of how the code was written, therefore the empty arrays above
   //all have an empty last value, therefore in this loop I did workoutInfo.length to counteract that
-  for (let i = 0; i < workoutInfo.length - 1; i++)
-  {
+  for (let i = 0; i < workoutInfo.length - 1; i++) {
     var names = document.getElementById((i + 10).toString());
     names.textContent = "Exercise name: " + workoutInfo[i];
     var equipment = document.getElementById((i + 50).toString());
@@ -79,16 +74,14 @@ function getWorkoutStorage()
 
 //this is the body part dropdown that will take the user input and start the fetch process
 var bodyPartDropdown = document.getElementById("workoutDropdown");
-for (let i = 0; i < bodyParts.length; i++)
-{
+for (let i = 0; i < bodyParts.length; i++) {
   var optionChoice = document.createElement("option");
   optionChoice.value = bodyParts[i];
   optionChoice.textContent = bodyParts[i];
   bodyPartDropdown.appendChild(optionChoice);
 }
 
-bodyPartDropdown.addEventListener("click", function (event)
-{
+bodyPartDropdown.addEventListener("click", function (event) {
   event.stopPropagation();
   event.preventDefault();
   //var optionValue gets the value of the option that the user selects in the dropdown
@@ -96,12 +89,10 @@ bodyPartDropdown.addEventListener("click", function (event)
     bodyPartDropdown.options[bodyPartDropdown.selectedIndex].value;
   //console.log(optionValue);
 
-  if (optionValue == "Choose Target Body Part")
-  {
+  if (optionValue == "Choose Target Body Part") {
   }
   // if the optionValue is the one specified up above, then nothing shall happen, if not the following code will happen
-  else
-  {
+  else {
     const options = {
       method: "GET",
       headers: {
@@ -113,12 +104,9 @@ bodyPartDropdown.addEventListener("click", function (event)
     fetch(
       "https://exercisedb.p.rapidapi.com/exercises/bodyPart/" + optionValue,
       options
-    ).then(function (response)
-    {
-      if (response.ok)
-      {
-        response.json().then(function (data)
-        {
+    ).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
           //this will make the dropdown that will ask for how many exercises the user wants
           //console.log(data);
           var numberDropdown = document.createElement("select");
@@ -132,8 +120,7 @@ bodyPartDropdown.addEventListener("click", function (event)
           workoutSpace.appendChild(numberDropdown);
           numberDropdown.appendChild(defaultOption);
 
-          for (let i = 0; i < 17; i++)
-          {
+          for (let i = 0; i < 17; i++) {
             var numberOption = document.createElement("option");
             numberOption.textContent = (i + 4).toString();
             numberOption.value = (i + 4).toString();
@@ -142,26 +129,22 @@ bodyPartDropdown.addEventListener("click", function (event)
           bodyPartDropdown.disabled = true;
 
           //this puts an eventListener on that dropdown to then start the next part of the generate process
-          numberDropdown.addEventListener("click", function (event)
-          {
+          numberDropdown.addEventListener("click", function (event) {
             event.preventDefault();
             event.stopPropagation();
 
             var exerciseValue =
               numberDropdown.options[numberDropdown.selectedIndex].value;
 
-            if (exerciseValue == "How many exercises do you want?")
-            {
-            } else
-            {
+            if (exerciseValue == "How many exercises do you want?") {
+            } else {
               var textInput = parseInt(exerciseValue);
               var workout = [];
               var workoutName = "";
               var workoutEquipment = "";
               var workoutGif = "";
 
-              for (let i = 0; i < textInput; i++)
-              {
+              for (let i = 0; i < textInput; i++) {
                 //math floor means that for how many exercises the user has selected it will go through the list and select random exercises
                 var randomWorkIndex = Math.floor(data.length * Math.random());
                 var randomWorkout = data[randomWorkIndex];
@@ -191,20 +174,16 @@ bodyPartDropdown.addEventListener("click", function (event)
 
 //Xavier function
 //Beer API work
-function beer()
-{
+function beer() {
   var Zipcode = document.getElementById("zipCode");
   var zipcodeInput = Zipcode.value;
 
   fetch(
     "https://api.openbrewerydb.org/breweries?by_postal=" + zipcodeInput
-  ).then(function (response)
-  {
-    if (response.ok)
-    {
+  ).then(function (response) {
+    if (response.ok) {
       //console.log(response);
-      response.json().then(function (data)
-      {
+      response.json().then(function (data) {
         console.log(data);
 
         var breweryName = "";
@@ -212,15 +191,12 @@ function beer()
         var breweryPhone = "";
         var breweryAddress = "";
 
-        for (i = 0; i < data.length; i++)
-        {
-          if (breweryPhone == null)
-          {
-            breweryPhone = "Phone number not available";
+        for (i = 0; i < data.length; i++) {
+          if (data[i].phone == null) {
+            data[i].phone = "Phone number not available";
           }
-          if (breweryUrl == null)
-          {
-            breweryUrl = "Website not available";
+          if (data[i].website_url == null) {
+            data[i].website_url = "Website not available";
           }
 
           breweryName += data[i].name + ", ";
@@ -240,13 +216,29 @@ function beer()
         localStorage.setItem("breweryAddress", breweryAddress);
 
         // localStorage.setItem("breweryList", data[i]);
+
+        for (let i = 0; i < data.length - 1; i++) {
+          var nameBeer = document.getElementById(
+            "name " + (i + 100).toString()
+          );
+          nameBeer.textContent = breweryName[i];
+          var phoneBeer = document.getElementById(
+            "phone " + (i + 200).toString()
+          );
+          phoneBeer.textContent = breweryPhone[i];
+          var addressBeer = document.getElementById(
+            "address " + (i + 300).toString()
+          );
+          addressBeer.textContent = breweryAddress[i];
+          var urlBeer = document.getElementById("url " + (i + 400).toString());
+          urlBeer.textContent = breweryUrl[i];
+        }
       });
     }
   });
 }
 
-function submit()
-{
+function submit() {
   getWorkoutStorage();
   beer();
 }
@@ -261,6 +253,7 @@ var lastWorkoutDisplay = document.getElementById("showRecentWorkout");
 lastWorkoutDisplay.hidden = true;
 
 function getWorkout() {
+  afterGenerate.hidden = false;
   // Workout Name
   var exerciseNameStorage = localStorage.getItem("workoutNames");
   var exerNameArray = [];
@@ -287,12 +280,21 @@ function getWorkout() {
     exerGifArray = exerGifStorage.split(",");
     console.log(exerGifArray);
   }
+  //displaying last workout info
+  for (let i = 0; i < exerNameArray.length - 1; i++) {
+    var names = document.getElementById((i + 10).toString());
+    names.textContent = "Exercise name: " + exerNameArray[i];
+    var equipment = document.getElementById((i + 50).toString());
+    equipment.textContent = "Equipment: " + exerEquipmentArray[i];
+    var url = document.getElementById((i + 100).toString());
+    url.src = exerGifArray[i];
+    url.style = "width: 40%; height: 40%";
+  }
+
   // Last workout Display content is shown and then hidden again each time the button is pressed
   if (lastWorkoutDisplay.hidden == false) {
-
     lastWorkoutDisplay.hidden = true;
-  } else
-  {
+  } else {
     lastWorkoutDisplay.hidden = false;
   }
 }
@@ -302,14 +304,12 @@ lastWorkout.addEventListener("click", getWorkout);
 var lastBrew = document.getElementById("recentBrews");
 var lastBrewDisplay = document.getElementById("brewListContent");
 lastBrewDisplay.hidden = true;
-function getBrewList()
-{
+function getBrewList() {
   //Name
   var nameStorage = localStorage.getItem("breweryName");
   var nameArray = [];
 
-  if (null != nameStorage)
-  {
+  if (null != nameStorage) {
     nameArray = nameStorage.split(", ");
     console.log(nameArray);
   }
@@ -317,8 +317,7 @@ function getBrewList()
   var urlStorage = localStorage.getItem("breweryUrl");
   var urlArray = [];
 
-  if (null != urlStorage)
-  {
+  if (null != urlStorage) {
     urlArray = urlStorage.split(", ");
     console.log(urlArray);
   }
@@ -326,8 +325,7 @@ function getBrewList()
   var phoneStorage = localStorage.getItem("breweryPhone");
   var phoneArray = [];
 
-  if (null != phoneStorage)
-  {
+  if (null != phoneStorage) {
     phoneArray = phoneStorage.split(", ");
     console.log(phoneArray);
   }
@@ -335,8 +333,7 @@ function getBrewList()
   var addressStorage = localStorage.getItem("breweryAddress");
   var addressArray = [];
 
-  if (null != addressStorage)
-  {
+  if (null != addressStorage) {
     addressArray = addressStorage.split(", ");
     console.log(addressArray);
   }
@@ -344,11 +341,24 @@ function getBrewList()
   lastBrewDisplay.textContent =
     nameArray + phoneArray + addressArray + urlArray;
 
+  //displaying the last brewery data to the page
+  for (let i = 0; i < nameArray.length - 1; i++) {
+    var nameBeer = document.getElementById("name " + (i + 100).toString());
+    nameBeer.textContent = nameArray[i];
+    var phoneBeer = document.getElementById("phone " + (i + 200).toString());
+    phoneBeer.textContent = phoneArray[i];
+    var addressBeer = document.getElementById(
+      "address " + (i + 300).toString()
+    );
+    addressBeer.textContent = addressArray[i];
+    var urlBeer = document.getElementById("url " + (i + 400).toString());
+    urlBeer.textContent = urlArray[i];
+  }
+
   // Last Brewery Seach Display is shown and hidden each time the button is pressed
   if (lastBrewDisplay.hidden == false) {
     lastBrewDisplay.hidden = true;
-  } else
-  {
+  } else {
     lastBrewDisplay.hidden = false;
   }
 }
