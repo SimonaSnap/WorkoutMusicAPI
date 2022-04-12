@@ -1,257 +1,429 @@
 <!DOCTYPE html>
 
 <html lang="en" class="multi-bg">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Barbells and Brews</title>
+		<!-- links to style and font  -->
+		<link rel="stylesheet" href="./assets/css/reset.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Montserrat:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+	</head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barbells and Brews</title>
-  <!-- links to style and font  -->
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Montserrat:wght@300&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+	<body>
+		<main>
+			<!-- Header and title on page  -->
+			<header class="container is-fluid centered custom-header">
+				<h1 class="notification has-text-centered is-size-1 custom-header">
+					Barbells and Brews
+				</h1>
+			</header>
+			<section
+				class="card is-narrow pt-2 is-multiline custom-section has-text-centered"
+			>
+				<!-- workout selector -->
+				<article class="is-half is-narrow column">
+					<div id="workout-container">
+						<select class="dropdown dropdown-sizeing" id="workoutDropdown">
+							<option selected disabled>Choose Target Body Part</option>
+						</select>
+					</div>
+				</article>
 
-<body>
-  <main>
-    <!-- Header and title on page  -->
-    <header class="container is-fluid centered custom-header">
-      <h1 class="notification has-text-centered is-size-1 custom-header">
-        Barbells and Brews
-      </h1>
-    </header>
-    <section class="card column is-narrow is-multiline custom-section has-text-centered">
-      <!-- Workout section -->
-      <article class="column is-half is-narrow">
-        <div class="column" id="workout-container">
-          <select class="dropdown dropdown-sizeing" id="workoutDropdown">
-            <option selected disabled>Choose Target Body Part</option>
-          </select>
-          <div id="workoutDisplay">
-            <ul>
-              <li>
-                <h3 id="10"></h3>
-              </li>
-              <li>
-                <h4 id="50"></h4>
-              </li>
-              <li>
-                <img id="100">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="11"></h3>
-              </li>
-              <li>
-                <h4 id="51"></h4>
-              </li>
-              <li>
-                <img id="101">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="12"></h3>
-              </li>
-              <li>
-                <h4 id="52"></h4>
-              </li>
-              <li>
-                <img id="102">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="13"></h3>
-              </li>
-              <li>
-                <h4 id="53"></h4>
-              </li>
-              <li>
-                <img id="103">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="14"></h3>
-              </li>
-              <li>
-                <h4 id="54"></h4>
-              </li>
-              <li>
-                <img id="104">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="15"></h3>
-              </li>
-              <li>
-                <h4 id="55"></h4>
-              </li>
-              <li>
-                <img id="105">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="16"></h3>
-              </li>
-              <li>
-                <h4 id="56"></h4>
-              </li>
-              <li>
-                <img id="106">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="17"></h3>
-              </li>
-              <li>
-                <h4 id="57"></h4>
-              </li>
-              <li>
-                <img id="107">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="18"></h3>
-              </li>
-              <li>
-                <h4 id="58"></h4>
-              </li>
-              <li>
-                <img id="108">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="19"></h3>
-              </li>
-              <li>
-                <h4 id="59"></h4>
-              </li>
-              <li>
-                <img id="109">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="20"></h3>
-              </li>
-              <li>
-                <h4 id="60"></h4>
-              </li>
-              <li>
-                <img id="110">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="21"></h3>
-              </li>
-              <li>
-                <h4 id="61"></h4>
-              </li>
-              <li>
-                <img id="111">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="22"></h3>
-              </li>
-              <li>
-                <h4 id="62"></h4>
-              </li>
-              <li>
-                <img id="112">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="23"></h3>
-              </li>
-              <li>
-                <h4 id="63"></h4>
-              </li>
-              <li>
-                <img id="113">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="24"></h3>
-              </li>
-              <li>
-                <h4 id="64"></h4>
-              </li>
-              <li>
-                <img id="114">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="25"></h3>
-              </li>
-              <li>
-                <h4 id="65"></h4>
-              </li>
-              <li>
-                <img id="115">
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3 id="26"></h3>
-              </li>
-              <li>
-                <h4 id="66"></h4>
-              </li>
-              <li>
-                <img id="116">
-              </li>
-            </ul>
-          </div>
-        </div>
-    </section>
-    <!-- Saved brewery and workouts  -->
-    <section id="favorites">
+				<!-- Brewerys section -->
+				<article class="is-half is-narrow column">
+					<div id="playlist-container">
+						<input
+							class="dropdown"
+							type="text"
+							placeholder="Zip Code"
+							id="zipCode"
+						/>
+					</div>
+				</article>
+			</section>
 
-      <button id="recentWorkouts">View Last Workout</button>
-      <div id="showRecentWorkout"></div>
-      <button id="recentBrews">View Last Brewery Search</button>
-      <div id="showRecentBrews">
-        <div id="brewListContent"></div>
-      </div>
-    </section>
-    </article>
-    <!-- Brewerys section -->
-    <article class="column is-half is-narrow">
-      <div id="playlist-container">
-        <input class="dropdown" type="text" placeholder="Zip Code" id="zipCode" />
-      </div>
-    </article>
-    <!-- final submit button -->
-    <div>
-      <button class="finalserchbtn" id="submitBtn">Submit</button>
-    </div>
-    </section>
+			<section
+				class="card is-narrow pb-2 is-multiline custom-section has-text-centered"
+			>
+				<!-- final submit button -->
+				<div>
+					<button class="finalserchbtn button" id="submitBtn">Submit</button>
+				</div>
+			</section>
 
-  </main>
-  <!-- links for js and moment -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./assets/js/javascript.js" async defer></script>
-</body>
+			<!-- Saved brewery and workouts  -->
+			<article class="custom-section">
+				<section id="favorites">
+					<button class="dropdown button" id="recentWorkouts">
+						View Last Workout
+					</button>
+					<div id="showRecentWorkout"></div>
+				</section>
+				<section>
+					<button class="dropdown button" id="recentBrews">
+						View Last Brewery Search
+					</button>
+					<div id="showRecentBrews">
+						<div id="brewListContent"></div>
+					</div>
+				</section>
+			</article>
+			<section
+				class="card is-narrow pt-2 is-multiline custom-section has-text-centered pulleddata"
+				id="brweslist"
+			>
+				<!-- Workout section -->
+				<article class="is-half is-narrow has-text-centered pulleddata">
+					<div id="workoutDisplay">
+						<ul>
+							<li>
+								<h3 id="10"></h3>
+							</li>
+							<li>
+								<h4 id="50"></h4>
+							</li>
+							<li>
+								<img id="100" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="11"></h3>
+							</li>
+							<li>
+								<h4 id="51"></h4>
+							</li>
+							<li>
+								<img id="101" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="12"></h3>
+							</li>
+							<li>
+								<h4 id="52"></h4>
+							</li>
+							<li>
+								<img id="102" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="13"></h3>
+							</li>
+							<li>
+								<h4 id="53"></h4>
+							</li>
+							<li>
+								<img id="103" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="14"></h3>
+							</li>
+							<li>
+								<h4 id="54"></h4>
+							</li>
+							<li>
+								<img id="104" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="15"></h3>
+							</li>
+							<li>
+								<h4 id="55"></h4>
+							</li>
+							<li>
+								<img id="105" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="16"></h3>
+							</li>
+							<li>
+								<h4 id="56"></h4>
+							</li>
+							<li>
+								<img id="106" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="17"></h3>
+							</li>
+							<li>
+								<h4 id="57"></h4>
+							</li>
+							<li>
+								<img id="107" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="18"></h3>
+							</li>
+							<li>
+								<h4 id="58"></h4>
+							</li>
+							<li>
+								<img id="108" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="19"></h3>
+							</li>
+							<li>
+								<h4 id="59"></h4>
+							</li>
+							<li>
+								<img id="109" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="20"></h3>
+							</li>
+							<li>
+								<h4 id="60"></h4>
+							</li>
+							<li>
+								<img id="110" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="21"></h3>
+							</li>
+							<li>
+								<h4 id="61"></h4>
+							</li>
+							<li>
+								<img id="111" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="22"></h3>
+							</li>
+							<li>
+								<h4 id="62"></h4>
+							</li>
+							<li>
+								<img id="112" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="23"></h3>
+							</li>
+							<li>
+								<h4 id="63"></h4>
+							</li>
+							<li>
+								<img id="113" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="24"></h3>
+							</li>
+							<li>
+								<h4 id="64"></h4>
+							</li>
+							<li>
+								<img id="114" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="25"></h3>
+							</li>
+							<li>
+								<h4 id="65"></h4>
+							</li>
+							<li>
+								<img id="115" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<h3 id="26"></h3>
+							</li>
+							<li>
+								<h4 id="66"></h4>
+							</li>
+							<li>
+								<img id="116" />
+							</li>
+						</ul>
+					</div>
+				</article>
 
+				<!-- Displaying Brewery Section -->
+				<article
+					class="is-half is-narrow column is-medium pb-0 mt-0 pulleddata"
+				>
+					<ul class="mt-0 mb-0 pb-0 pt-0">
+						<li>
+							<h3 id="name 100"></h3>
+						</li>
+						<li>
+							<h4 id="phone 200"></h4>
+						</li>
+						<li>
+							<h4 id="address 300"></h4>
+						</li>
+						<li>
+							<h4 id="url 400"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 101"></h3>
+						</li>
+						<li>
+							<h4 id="phone 201"></h4>
+						</li>
+						<li>
+							<h4 id="address 301"></h4>
+						</li>
+						<li>
+							<h4 id="url 401"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 102"></h3>
+						</li>
+						<li>
+							<h4 id="phone 202"></h4>
+						</li>
+						<li>
+							<h4 id="address 302"></h4>
+						</li>
+
+						<li>
+							<h4 id="url 402"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 103"></h3>
+						</li>
+						<li>
+							<h4 id="phone 203"></h4>
+						</li>
+						<li>
+							<h4 id="address 303"></h4>
+						</li>
+
+						<li>
+							<h4 id="url 403"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 104"></h3>
+						</li>
+						<li>
+							<h4 id="phone 204"></h4>
+						</li>
+						<li>
+							<h4 id="address 304"></h4>
+						</li>
+						<li>
+							<h4 id="url 404"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 105"></h3>
+						</li>
+						<li>
+							<h4 id="phone 205"></h4>
+						</li>
+						<li>
+							<h4 id="address 305"></h4>
+						</li>
+						<li>
+							<h4 id="url 405"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 106"></h3>
+						</li>
+						<li>
+							<h4 id="phone 206"></h4>
+						</li>
+						<li>
+							<h4 id="address 306"></h4>
+						</li>
+						<li>
+							<h4 id="url 406"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 107"></h3>
+						</li>
+						<li>
+							<h4 id="phone 207"></h4>
+						</li>
+						<li>
+							<h4 id="address 307"></h4>
+						</li>
+						<li>
+							<h4 id="url 407"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 108"></h3>
+						</li>
+						<li>
+							<h4 id="phone 208"></h4>
+						</li>
+						<li>
+							<h4 id="address 308"></h4>
+						</li>
+						<li>
+							<h4 id="url 408"></h4>
+						</li>
+						<br />
+						<li>
+							<h3 id="name 109"></h3>
+						</li>
+						<li>
+							<h4 id="phone 209"></h4>
+						</li>
+						<li>
+							<h4 id="address 309"></h4>
+						</li>
+						<li>
+							<h4 id="url 409"></h4>
+						</li>
+					</ul>
+				</article>
+			</section>
+		</main>
+		<!-- links for js and moment -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+			integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="./assets/js/javascript.js" async defer></script>
+	</body>
 </html>
