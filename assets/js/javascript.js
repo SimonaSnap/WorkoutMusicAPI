@@ -252,7 +252,8 @@ function beer()
         var urlArray = [];
         urlArray = breweryUrl.split(",");
 
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++)
+        {
           var nameBeer = document.getElementById(
             "name " + (i + 100).toString()
           );
@@ -345,10 +346,16 @@ lastWorkout.addEventListener("click", getWorkout);
 var lastBrew = document.getElementById("recentBrews");
 var lastBrewDisplay = document.getElementById("brewListContent");
 lastBrewDisplay.hidden = true;
-function getBrewList(event) {
+
+function getBrewList(event)
+{
   event.stopPropagation();
   event.preventDefault();
+}
 
+
+function getBrewList()
+{
   //Name
   var nameStorage = localStorage.getItem("breweryName");
   var nameArray = [];
