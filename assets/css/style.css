@@ -5,6 +5,7 @@
 	font-family: "Beau Rivage", cursive;
 	font-size: 50%;
 }
+
 /* main section with divs for serch for brews and workout section */
 
 .custom-section {
@@ -23,9 +24,8 @@
 	color: rgb(43, 47, 51);
 	width: 500px;
 	justify-content: center;
-	
-	
 }
+
 /* submit buttons section */
 .finalserchbtn {
 	border: 2px solid black;
@@ -34,13 +34,16 @@
 	background-color: white;
 	text-align: center;
 }
+
 /* responsive display */
 @media screen and (max-width: 820px) {
+
 	/* Use flex-direction to stack the navbar, sidebar, and body */
 	selection {
 		flex-direction: column;
 	}
 }
+
 .pulleddata{
 	background-color: rgb(253, 233, 204);
 	font-size: 15px;
