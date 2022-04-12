@@ -243,23 +243,30 @@ function beer()
         addressArray = breweryAddress.split(",");
 
         // localStorage.setItem("breweryList", data[i]);
+        var nameArray = [];
+        nameArray = breweryName.split(",");
+        var phoneArray = [];
+        phoneArray = breweryPhone.split(",");
+        var addressArray = [];
+        addressArray = breweryAddress.split(",");
+        var urlArray = [];
+        urlArray = breweryUrl.split(",");
 
-        for (let i = 0; i < data.length - 1; i++)
-        {
+        for (let i = 0; i < data.length; i++) {
           var nameBeer = document.getElementById(
             "name " + (i + 100).toString()
           );
-          nameBeer.textContent = breweryName[i];
+          nameBeer.textContent = nameArray[i];
           var phoneBeer = document.getElementById(
             "phone " + (i + 200).toString()
           );
-          phoneBeer.textContent = breweryPhone[i];
+          phoneBeer.textContent = phoneArray[i];
           var addressBeer = document.getElementById(
             "address " + (i + 300).toString()
           );
           addressBeer.textContent = addressArray[i];
           var urlBeer = document.getElementById("url " + (i + 400).toString());
-          urlBeer.textContent = breweryUrl[i];
+          urlBeer.textContent = urlArray[i];
         }
       });
     }
@@ -326,13 +333,11 @@ function getWorkout()
   }
 
   // Last workout Display content is shown and then hidden again each time the button is pressed
-  if (lastWorkoutDisplay.hidden == false)
-  {
-    lastWorkoutDisplay.hidden = true;
-  } else
-  {
-    lastWorkoutDisplay.hidden = false;
-  }
+  //   if (lastWorkoutDisplay.hidden == false) {
+  //     lastWorkoutDisplay.hidden = true;
+  //   } else {
+  //     lastWorkoutDisplay.hidden = false;
+  //   }
 }
 lastWorkout.addEventListener("click", getWorkout);
 
@@ -340,8 +345,10 @@ lastWorkout.addEventListener("click", getWorkout);
 var lastBrew = document.getElementById("recentBrews");
 var lastBrewDisplay = document.getElementById("brewListContent");
 lastBrewDisplay.hidden = true;
-function getBrewList()
-{
+function getBrewList(event) {
+  event.stopPropagation();
+  event.preventDefault();
+
   //Name
   var nameStorage = localStorage.getItem("breweryName");
   var nameArray = [];
@@ -398,12 +405,10 @@ function getBrewList()
   }
 
   // Last Brewery Seach Display is shown and hidden each time the button is pressed
-  if (lastBrewDisplay.hidden == false)
-  {
-    lastBrewDisplay.hidden = true;
-  } else
-  {
-    lastBrewDisplay.hidden = false;
-  }
+  //   if (lastBrewDisplay.hidden == false) {
+  //     lastBrewDisplay.hidden = true;
+  //   } else {
+  //     lastBrewDisplay.hidden = false;
+  //   }
 }
 lastBrew.addEventListener("click", getBrewList);
