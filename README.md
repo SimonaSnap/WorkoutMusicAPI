@@ -21,6 +21,10 @@ This application satisfies the following requirements:
  - There is a slideshow presentation with a breakdown of our group's process
     - https://docs.google.com/presentation/d/1BUWM0fV0ze3gfxR-ofTBOyAyOZCQFVtw8SF6omv7bWQ/edit?usp=sharing 
 
+
+Also for wireframing we set up a Figma file that can be found here:
+ - Figma: https://www.figma.com/file/fRllO8v1jBevYr6FG79ZaT/Workout-Music-API?node-id=0%3A1 
+
 ## What We Learned:
 Somethings that our group got to learn or practice are:
  - Calling an API and filtering out the data being requested
@@ -30,8 +34,14 @@ Somethings that our group got to learn or practice are:
  - Adding an eventListener inside an eventListener
  - Setting up and working with Dropdowns
  - Also split and how that can split strings into usable arrays
+ - How to set up a button that can show and hide data
+ - How to determine if an API is usable and support the programs that we want to run on it
+ - How different CSS frameworks work
+ - How to make styling changes as new code is added by others
+ - How to read CSS documentation and find key pieces of information
 
 ## Screenshot of Deployment:
+![A picture of the deployed HTML file](./assets/img/Barbells-and-Brews.png "Barbells and Brews Deployed Page")
 
 Copyright (c) 2022 Elizabeth Larson Xavier Marquez Zane Pisano Simona Snapkauskaite
 
